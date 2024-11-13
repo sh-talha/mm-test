@@ -1,0 +1,451 @@
+<style>
+form#ambassadorForm {
+  padding: 0 70px;
+}
+.form-step1,
+.form-step2,
+.form-step3 {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.amb-form_group {
+  display: flex;
+  gap: 90px;
+  width: 100%;
+}
+.amb-form_input.w-50 {
+  width: 50%;
+  position: relative;
+}
+.amb-form_input.w-100 {
+  width: 100%;
+}
+.amb-form_group input, 
+.amb-form_group select {
+  width: 100%;
+  display: flex;
+  height: 70px;
+  padding: 0px 24px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ADAFB2;
+}
+.amb-form_group label {
+  color: #000;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px; 
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.amb-form_group  .shirt_size_label {
+  position: absolute;
+  top: -20px;
+}
+.amb-form_group input::placeholder,
+ .amb-form_group  select {
+  color: #757575;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.966px;
+  text-transform: uppercase;
+   appearance: none;
+}
+.amb-form_group .amb-form_select_down-arrow {
+  position: relative;
+}
+.amb-form_group .amb-form_select_down-arrow::before {
+  content: '';
+  background: url(https://cdn.shopify.com/s/files/1/0660/6399/1027/files/down-select-arrow_svg.png?v=1711993444) no-repeat;
+  position: absolute;
+  right: 5px;
+  top: 26px;
+  bottom: 0;
+  margin: auto;
+  width: 40px;
+  z-index: 99;
+}
+.ambassador-form .select_files_input {
+  width: 100%;
+  border: 2px dashed #ADAFB2;
+  padding: 30px 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ambassador-form .select_files_btn {
+  border: none;
+  width: 350px;
+  background: #FFAD14;
+  padding: 20px 50px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Town 50 Chic";
+  font-size: 19.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 4.992px;
+  text-transform: uppercase;
+}
+.ambassador-form .form--btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  gap: 30px;
+}
+.ambassador-form .prev-btn{
+  padding: 0 28px 0 0 !important;
+}
+.ambassador-form .prev-btn,
+.ambassador-form .next-btn,
+.ambassador-form .submit-btn {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  gap: 28px;
+  padding: 0 0 0 28px;
+  background: #FFAD14;
+  color: #FFF;
+  text-align: center;
+  font-family: "PT Sans";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 4.992px;
+  text-transform: uppercase;
+  border: none;
+}
+.ambassador-form .prev-btn span {
+  border-right: 2px solid #fff;
+  border-left: none !important;
+}
+.ambassador-form .prev-btn span, 
+.ambassador-form .next-btn span,
+.ambassador-form .submit-btn span {
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid #fff;
+}
+</style>
+<div class="page-width">
+<form id="ambassadorForm" class="ambassador-form">
+  <!-- Step 1 -->
+  <div class="form-step" id="step-1">
+    <!-- Your fields for step 1 -->
+    <div class="form-step1">
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+         <input type="text" id="fname" name="fname" placeholder="First Name">
+        </div>
+        <div class="amb-form_input w-50">
+          <input type="text" id="lname" name="lname" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <label>Direct Link to your Instagram Profile*</label>
+          <input type="url" id="Instagram" name="Instagram" placeholder="https://"> 
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+          <input type="number" id="tentacles" name="tentacles" min="10" max="100" placeholder="Number of Instagram Followers" />       
+        </div> 
+        <div class="amb-form_input w-50">
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Is Your Instagram Profile Public?</option>
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <input type="number" id="tentacles" name="tentacles" min="10" max="100" placeholder="Number of In-Feed Posts">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+          <input type="text" id="fname" name="fname" placeholder="TikTok Handle (if applicable)">
+        </div> 
+        <div class="amb-form_input w-50">
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Are you over the age of 18?</option>
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Gender</option>
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select>
+          </div>
+        </div> 
+        <div class="amb-form_input w-50">
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Describe your social pages</option>
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Please select Yes or No</option> 
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form--btns">
+      <button type="button" class="next-btn">Next
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32" fill="none">
+            <g clip-path="url(#clip0_4_535)">
+              <path d="M1.81941 1.28799L16.3911 15.8597L1.81941 30.4314" stroke="white" stroke-width="1.78684" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_4_535">
+                <rect width="16.7284" height="31.67" fill="white" transform="translate(0.555664 0.0249023)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </span> 
+      </button> 
+    </div>
+  </div> 
+
+  <!-- Step 2 --> 
+  <div class="form-step" id="step-2" style="display: none;"> 
+    <!-- Your fields for step 2 -->
+    <div class="form-step2">
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+           <input type="tel" id="phone" name="phone" placeholder="123-45-678" placeholder="Phone Number"> 
+        </div>
+        <div class="amb-form_input w-50">
+          <input type="email" id="email" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <input type="text" id="address" name="address" placeholder="Street Address">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <input type="text" id="state" name="state" placeholder="City">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <input type="text" id="address" name="address" placeholder="State">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100">
+          <input type="text" id="address" name="address" placeholder="Zip">
+        </div>
+      </div>
+    </div>
+    <div class="form--btns">
+      <button type="button" class="prev-btn">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32" fill="none">
+            <g clip-path="url(#clip0_4_535)">
+              <path d="M1.81941 1.28799L16.3911 15.8597L1.81941 30.4314" stroke="white" stroke-width="1.78684" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_4_535">
+                <rect width="16.7284" height="31.67" fill="white" transform="translate(0.555664 0.0249023)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </span>Previous</button>
+      <button type="button" class="next-btn">Next
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32" fill="none">
+            <g clip-path="url(#clip0_4_535)">
+              <path d="M1.81941 1.28799L16.3911 15.8597L1.81941 30.4314" stroke="white" stroke-width="1.78684" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_4_535">
+                <rect width="16.7284" height="31.67" fill="white" transform="translate(0.555664 0.0249023)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </span> 
+      </button> 
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="form-step" id="step-3" style="display: none;">
+    <!-- Your fields for step 3 --> 
+     <div class="form-step3"> 
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+          <input type="text" id="text" name="text" placeholder="Email">
+        </div>
+        <div class="amb-form_input w-50">
+          <input type="text" id="text" name="text" placeholder="Email">
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-50">
+          <input type="text" id="text" name="text" placeholder="Email">
+        </div>
+        <div class="amb-form_input w-50">
+          <label class="shirt_size_label">Shirt Size</label>
+          <div class="amb-form_select_down-arrow">
+            <select id="check" name="check">
+                <option value="">Select Size</option>
+                <option value="yes">Yes</option>
+                <option value="no">no</option>
+            </select> 
+          </div>
+        </div>
+      </div>
+      <div class="amb-form_group">
+        <div class="amb-form_input w-100"> 
+           <label>Are you in College? </label>
+            <div class="select_files_input">
+              <input type="file" name="file" id="file" class="select_files_btn">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="form--btns">
+      <button type="button" class="prev-btn">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32" fill="none">
+            <g clip-path="url(#clip0_4_535)">
+              <path d="M1.81941 1.28799L16.3911 15.8597L1.81941 30.4314" stroke="white" stroke-width="1.78684" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_4_535">
+                <rect width="16.7284" height="31.67" fill="white" transform="translate(0.555664 0.0249023)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </span>
+        Previous</button>
+      <button type="submit" class="submit-btn">Submit
+       <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="32" viewBox="0 0 18 32" fill="none">
+            <g clip-path="url(#clip0_4_535)">
+              <path d="M1.81941 1.28799L16.3911 15.8597L1.81941 30.4314" stroke="white" stroke-width="1.78684" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_4_535">
+                <rect width="16.7284" height="31.67" fill="white" transform="translate(0.555664 0.0249023)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </span></button>
+    </div>
+  </div>
+</form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+  const form = document.getElementById('ambassadorForm');
+  const nextBtns = document.querySelectorAll('.next-btn');
+  const prevBtns = document.querySelectorAll('.prev-btn');
+  let currentStep = 1;
+
+  // Function to go to the next step
+  function goToNextStep() {
+    const current = document.getElementById(`step-${currentStep}`);
+    const next = document.getElementById(`step-${currentStep + 1}`);
+    if (next) {
+      current.style.display = 'none';
+      next.style.display = 'block';
+      currentStep++;
+    }
+  }
+
+  // Function to go to the previous step
+  function goToPreviousStep() {
+    const current = document.getElementById(`step-${currentStep}`);
+    const prev = document.getElementById(`step-${currentStep - 1}`);
+    if (prev) {
+      current.style.display = 'none';
+      prev.style.display = 'block';
+      currentStep--;
+    }
+  }
+
+  // Add event listeners to next buttons
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', goToNextStep);
+  });
+
+  // Add event listeners to previous buttons
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', goToPreviousStep);
+  });
+
+  // Handle form submission
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Collect data from form
+    const formData = new FormData(form);
+    
+    // Send data to your Shopify endpoint (modify the URL to your endpoint)
+    fetch('YOUR_SHOPIFY_ENDPOINT_URL', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle response data
+      console.log(data);
+      // Redirect to a thank you page or display a success message
+    })
+    .catch(error => {
+      // Handle errors
+      console.error(error);
+    });
+  });
+});
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "PS Step Form",
+    "settings": [],
+     "presets": [
+    {
+      "name": "PS Step Form"
+    }
+  ]
+  }
+{% endschema %}

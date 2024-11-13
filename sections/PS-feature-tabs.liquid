@@ -1,0 +1,312 @@
+<style>
+  .ftabs_tagline{
+    font-family: "Town 50 Chic";
+    font-size: 21.35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.2px;
+    letter-spacing: 4.632px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #FFAD14;
+  }
+  .ftabs_heading{
+    font-family: Righteous;
+    font-size: 93.6px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 113.92px;
+    text-transform: uppercase;
+    color: #050505;
+  }
+  .ftabs_heading p{
+    margin:0px;
+  }
+  .ftabs_heading em{
+        font-style: normal;
+    color: #A9D0C7;
+  }
+  .ftabs_inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 70px;
+  }
+  .ftabs_left{
+    width: 50%;
+  }
+  .tabs-nav{
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 70px;
+    padding: 34px;
+    border-top: 2px solid #F93;
+    border-bottom: 2px solid #F93;
+    max-width: 635px;
+    margin-bottom: 35px;
+    margin-top: 30px;
+        align-items: center;
+    justify-content: center;
+  }
+  .tabs-nav .tab_btn{
+    display:flex;
+  }
+  .tab_btn img{
+    width: 48px;
+    height: 48px;
+  }
+  .tab-activee .tab_btn img{
+    filter: invert(1);
+  }
+  .tabs-stage{
+        padding: 0px 34px;
+  }
+  .tabs_contant h3{
+        margin: 0;
+    color: #000;
+    font-family: "Town 50 Chic";
+    font-size: 17.201px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 25.6px;
+    letter-spacing: 3.584px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .tabs_contant p{
+    margin: 0;
+    color: #000;
+    font-family: 'Martel Sans';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 37px;
+    letter-spacing: 0.64px;
+  }
+  .ftabs_right{
+    width:50%;
+  }
+  .ftabs_right img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ftabs_main{
+    padding-bottom:80px;
+  }
+@media screen and (max-width: 1580px) {
+    .ftabs_heading { 
+      font-size: 60.6px;
+      line-height: 68.92px;
+  }
+  .tabs_contant p {
+    font-size: 20px; 
+    line-height: 30px;
+}
+  }
+@media screen and (max-width: 1199px) {
+.ftabs_heading {
+  font-size: 50.6px;
+  line-height: 58.92px;
+}
+  .tabs-nav {
+    gap: 60px;
+    padding: 25px;
+    max-width: 520px;
+    margin: 20px 0;
+}
+  .tabs-stage {
+    padding: 0px 10px;
+}
+  .tabs_contant p {
+    font-size: 18px;
+    line-height: 26px;
+}
+  
+}
+@media screen and (max-width: 992px) {
+  .ftabs_heading {
+  font-size: 40.6px;
+  line-height: 48.92px;
+}
+  .ftabs_inner {
+    display: flex;
+    
+    row-gap: 30px;
+}
+.ftabs_left {
+  width: 100%;
+}
+  .ftabs_right {
+    width: 100%;
+}
+}
+@media screen and (max-width: 767px) {
+.ftabs_heading {
+  font-size: 30.6px;
+  line-height: 38.92px;
+}
+.tabs-nav {
+  gap: 25px;
+  padding: 20px;
+  max-width: 480px;
+  margin: 20px 0;
+}
+.ftabs_tagline {
+  font-size: 16.35px;
+  line-height: 30.2px;
+  letter-spacing: 2.632px;
+}
+}
+
+</style>
+<div class="ftabs_main">
+  <div class="page-width">
+    <div class="ftabs_text">
+      <h5 class="ftabs_tagline">{{ section.settings.tagline }}</h5>
+      <span class="ftabs_heading">{{ section.settings.headline }}</span>
+    </div>
+    <div class="ftabs_inner">
+      <div class="ftabs_left">
+                <ul class="tabs-nav">
+                   {% for block in section.blocks %}
+                    <li class=" {% if forloop.first %} tab-activee {% endif %}">
+                    <a class="tab_btn" href="#tab-{{ forloop.index }}" rel="#tab-{{ forloop.index }}">
+                        {% if block.settings.tabs_img != blank %}
+                        {{ block.settings.tabs_img | image_url:width:block.settings.tabs_img.width | image_tag:loading:'lazy' }}
+                        {% endif %}
+                    </a>
+                    </li>
+                     {% endfor %}
+                </ul>
+                <div class="tabs-stage">
+                 {% for block in section.blocks %}
+                    <div id="tab-{{ forloop.index }}" class="tab_inner">
+                        <div class="tabs_contant">
+                          {{ block.settings.tab_content }}
+                          {% if block.settings.tab_url !=blank %}
+                          <a class="site_primary-btn" href="{{ block.settings.tab_url }}"><span>{{ block.settings.btn_text }}</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+                            <g clip-path="url(#clip0_0_341)">
+                              <path d="M16 1.80981V31.2703" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                              <path d="M30.7302 16.54H1.26978" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_0_341">
+                                <rect width="31.67" height="31.67" fill="white" transform="translate(0.165009 0.705078)"/>
+                              </clipPath>
+                            </defs>
+                          </svg></a>
+                            {% endif %}
+                         </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                
+            </div>
+      <div class="ftabs_right">
+        {% if section.settings.image != blank %}
+         {{ section.settings.image | image_url:width:section.settings.image.width | image_tag:loading:'lazy' }}
+        {% endif %}
+      </div>
+      <a class="site_secondary-btn" href="{{ section.settings.tab_url }}">
+        <p>{{ section.settings.btn_text }}</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+        <g clip-path="url(#clip0_0_8)">
+          <path d="M21.8831 0.840088H10.0069C4.54182 0.840088 0.110001 5.27191 0.110001 10.737V22.6132C0.110001 28.0783 4.54182 32.5101 10.0069 32.5101H21.8831C27.3482 32.5101 31.78 28.0783 31.78 22.6132V10.737C31.78 5.27191 27.3482 0.840088 21.8831 0.840088ZM28.8109 22.6132C28.8109 26.4334 25.7033 29.541 21.8831 29.541H10.0069C6.18668 29.541 3.07906 26.4334 3.07906 22.6132V10.737C3.07906 6.91677 6.18668 3.80915 10.0069 3.80915H21.8831C25.7033 3.80915 28.8109 6.91677 28.8109 10.737V22.6132Z" fill="white"/>
+          <path d="M15.9455 8.75757C11.5728 8.75757 8.0275 12.3028 8.0275 16.6755C8.0275 21.0482 11.5728 24.5935 15.9455 24.5935C20.3182 24.5935 23.8634 21.0482 23.8634 16.6755C23.8634 12.3028 20.3182 8.75757 15.9455 8.75757ZM15.9455 21.6243C13.2177 21.6243 10.9967 19.4033 10.9967 16.6755C10.9967 13.9458 13.2177 11.7268 15.9455 11.7268C18.6732 11.7268 20.8942 13.9458 20.8942 16.6755C20.8942 19.4033 18.6732 21.6243 15.9455 21.6243Z" fill="white"/>
+          <path d="M24.4564 9.21903C25.0391 9.21903 25.5114 8.74666 25.5114 8.16396C25.5114 7.58126 25.0391 7.10889 24.4564 7.10889C23.8737 7.10889 23.4013 7.58126 23.4013 8.16396C23.4013 8.74666 23.8737 9.21903 24.4564 9.21903Z" fill="white"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_0_8">
+            <rect width="31.67" height="31.67" fill="white" transform="translate(0.110001 0.840088)"/>
+          </clipPath>
+        </defs>
+      </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+   $('.ftabs_main .tab_btn').on('click', function(event) { 
+        event.preventDefault();   
+        $('.ftabs_main .tab-activee').removeClass('tab-activee');  
+        $(this).parent().addClass('tab-activee');  
+        $('.ftabs_main .tab_inner').hide();  
+        $($(this).attr('rel')).show();  
+        });   
+        $('.ftabs_main .tabs-nav li:first-child .tab_btn').trigger('click'); 
+
+</script>
+{% schema %}
+  {
+    "name": "PS feature tabs",
+    "settings": [
+      {
+        "type":"text",
+        "id":"tagline",
+        "label":"Tagline",
+        "default": "taste forward, science backed"
+      },
+      {
+        "type":"richtext",
+        "id":"headline",
+        "label":"Heading"
+      },
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Image"
+      },
+      {
+        "type":"text",
+        "id":"btn_text",
+        "label":"Button Text",
+        "default": "@puresourcebeverageco"
+      },
+      {
+        "type":"url",
+        "id":"tab_url",
+        "label":"Button Url"
+      }
+    ],
+    "blocks":[
+      {
+       "type":"tabs",
+        "name":"Tab",
+        "settings":[
+          
+          {
+            "type":"image_picker",
+            "id":"tabs_img",
+            "label":"Tab Image"
+          },
+          {
+            "type":"richtext",
+            "id":"tab_content",
+            "label":"Content"
+          },
+          {
+            "type":"text",
+            "id":"btn_text",
+            "label":"Button Text",
+            "default": "VIEW STUDY"
+          },
+          {
+            "type":"url",
+            "id":"tab_url",
+            "label":"Button Url"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"PS feature tabs"
+      }
+    ]
+  }
+{% endschema %}

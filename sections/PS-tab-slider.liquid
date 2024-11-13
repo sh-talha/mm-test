@@ -1,0 +1,961 @@
+<style>
+.psc_tabs_slider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position:relative;
+}
+.psc_tabs_slider .slick-prev:before, .psc_tabs_slider .slick-next:before {
+  filter: invert(1);
+}
+.psc_tabs_slider .contianer {
+  max-width: 100%;
+  padding: 0;
+}
+.psc_tabs_slider .section_title {
+  color: #053527;
+  font-family: "Town 50 Chic";
+  font-size: 16.502px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+}
+.psc_tabs_slider .tab-menu {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+.psc_tabs_slider .tab_btn {
+  display: flex;
+  max-width: fit-content;
+  padding: 10px 155px 17px 154px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  border-bottom: 5px solid #EFEFEF;
+}
+.psc_tabs_slider .tab_btn li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+  cursor: pointer;
+}
+.psc_tabs_slider .tab_btn .tab_button {
+  text-align: center;
+  font-family: "Town 50 Chic";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+}
+.psc_tabs_slider .tab_btn li .active-a {
+  color: #FFAD14;
+}
+.psc_tabs_slider .tab{
+	display: none;
+}
+.psc_tabs_slider .active-tab{
+	display: block;
+}
+.psc_tabs_slider .tab_count {
+  text-align: center;
+  font-family: "Town 50 Chic";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+}
+.psc_tabs_slider .slider_col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.psc_tabs_slider .slider_col_left {
+  display: flex;
+  max-width: 632px;
+  height: auto;
+  flex-direction: column;
+}
+.psc_tabs_slider .slider_col_right {
+  padding-left: 50px;
+}
+.psc_tabs_slider h2 {
+  font-family: Righteous;
+  font-size: 88px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 93.44px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin:0px;
+}
+.psc_tabs_slider h4 {
+  font-family: "Town 50 Chic";
+  font-size: 21.525px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35.2px;
+  letter-spacing: 5.632px;
+  text-transform: uppercase;
+  margin: 20px 0px 0px;
+}
+.psc_tabs_slider h3 {
+  font-family: Righteous;
+  font-size: 65.588px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80.64px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+      margin: 0;
+}
+.psc_tabs_slider .desc {
+  max-width: 450px;
+  display: block;
+}
+.psc_tabs_slider .desc,
+.psc_tabs_slider .desc p {
+  font-family: inherit;
+  font-size: 23.7px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 37.12px;
+  letter-spacing: 0.64px;
+}
+.psc_tabs_slider .desc ul {
+  list-style: circle;
+}
+.psc_tabs_slider .middle_img {
+  max-width: 250px;
+}
+.psc_tabs_slider .right_img {
+  max-width: 530px;
+}
+.psc_tabs_slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+  .site_primary-btn span{
+    color:inherit !important
+  }
+@media screen and (max-width: 1480px){
+.psc_tabs_slider .tab-menu {
+  max-width: 100%;
+  padding: 0 50px 30px 50px;
+}
+.psc_tabs_slider .tab_btn { 
+  padding: 10px 100px 10px 100px;
+}
+.psc_tabs_slider .slider_col {
+  padding: 0 50px;
+}
+.psc_tabs_slider h2 {
+  font-size: 68px;
+  line-height: 76px;
+  letter-spacing: 2px;
+}
+.psc_tabs_slider h4 {
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: 5px;
+}
+.psc_tabs_slider h3 {
+  font-size: 54px;
+  line-height: 62px;
+  letter-spacing: 3px;
+}
+.psc_tabs_slider .desc {
+  max-width: 380px;
+}
+.psc_tabs_slider .desc, .psc_tabs_slider .desc p {
+  font-size: 20px;
+  line-height: 28px;
+}
+.psc_tabs_slider .middle_img {
+  max-width: 200px;
+}
+.psc_tabs_slider .right_img {
+  max-width: 420px;
+}
+}
+@media screen and (max-width: 1199px){
+.psc_tabs_slider h2 {
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: 1.5px;
+}
+.psc_tabs_slider h4 {
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 4px;
+}
+.psc_tabs_slider h3 {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 3px;
+}
+.psc_tabs_slider .desc {
+  max-width: 350px;
+}
+.psc_tabs_slider .desc, .psc_tabs_slider .desc p {
+  font-size: 18px;
+  line-height: 26px;
+}
+.psc_tabs_slider .slider_col_right {
+  padding-left: 30px;
+}
+}
+@media screen and (max-width: 991px){
+.psc_tabs_slider .tab_btn {
+  padding: 10px 20px 10px 20px;
+  gap: 20px;
+}
+.psc_tabs_slider .section_title {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2.584px;
+}
+.psc_tabs_slider .tab-menu {
+  max-width: 100%;
+  padding: 0 20px 30px 20px;
+}
+.psc_tabs_slider .tab_btn li {
+  padding: 0 20px;
+}
+.psc_tabs_slider .tab_btn .tab_button {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+}
+.psc_tabs_slider .slider_col {
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+.psc_tabs_slider .slider_col_left {
+  align-self: flex-start;
+  max-width: 440px;
+}
+.psc_tabs_slider h2 {
+  font-size: 47px;
+  line-height: 55px;
+  letter-spacing: 1.5px;
+}
+.psc_tabs_slider .middle_img {
+  max-width: 150px;
+}
+.psc_tabs_slider .slider_col_right {
+  padding-left: 0;
+}
+.psc_tabs_slider .right_img {
+  max-width: 350px;
+}
+}
+@media screen and (max-width: 767px) {
+.psc_tabs_slider .tab-menu {
+  flex-direction: column;
+  gap: 0px;
+}
+.psc_tabs_slider .tab_count {
+  display: none;
+}
+.psc_tabs_slider .tab_btn li {
+  padding: 0 10px;
+}
+.psc_tabs_slider .tab_btn .tab_button {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
+.psc_tabs_slider .tab_btn {
+  padding: 10px;
+  gap: 10px;
+}
+.psc_tabs_slider .middle_img {
+  max-width: 100px;
+}
+.psc_tabs_slider .right_img {
+  max-width: 230px; 
+}
+}
+.psc_tabs_slider .slider_col {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+</style>
+{% style %}
+#psc_tabs_slider-{{ section.id }} { 
+  background-color: {{ section.settings.bg_color }}; 
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #psc_tabs_slider-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{%  for block in section.blocks %} 
+#slider_col-{{ block.id }} { 
+  background-image: url('{{ block.settings.bg_image | img_url: 'master' }}');
+}
+
+#slider_col-{{ block.id }} .slider_col_left h2 {
+ color: {{ block.settings.title_color }}; 
+}
+#slider_col-{{ block.id }} .slider_col_left span.desc p,
+#slider_col-{{ block.id }} .slider_col_left span.desc li {
+  color: {{ block.settings.desc_color }};
+}
+#slider_col-{{ block.id }} .slider_col_left h4 {
+color: {{ block.settings.tag_line_color }};
+}
+#slider_col-{{ block.id }} .slider_col_left h3 { 
+  color: {{ block.settings.heading_color }}; 
+}
+{% endfor %}
+{% endstyle %}
+<section class="psc_tabs_slider" id="psc_tabs_slider-{{ section.id }}">
+  <div class="page-width">
+    <div class="tabs_inner">
+      <div class="tab-menu">
+          <span class="section_title">Our Products</span>
+        <ul class="tab_btn">
+          {% if section.settings.tab1_heading  != blank %}
+            <li><span class="tab_button active-a" data-id="tab1">{{ section.settings.tab1_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab2_heading  != blank %}
+            <li><span class="tab_button" data-id="tab2">{{ section.settings.tab2_heading }}</span></li>
+          {% endif %} 
+          {% if section.settings.tab3_heading  != blank %}  
+            <li><span class="tab_button" data-id="tab3">{{ section.settings.tab3_heading }}</span></li>
+          {% endif %}
+        </ul>
+        <div class="tab_count">
+       
+        </div>
+      </div> 
+    </div> 
+    <div  class="tab slider_inner active-tab" data-id="tab1"> 
+     {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'first_tab' %}
+          <div class="slider_col" id="slider_col-{{ block.id }}"> 
+            <div class="slider_col_left">
+              {% if block.settings.title != blank %}
+                <h2>{{ block.settings.title }}</h2>
+              {% endif %}
+              {% if block.settings.tag_line != blank %}
+                <h4>{{ block.settings.tag_line }}</h4>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %}
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %} 
+                <div class="primary_btn">
+                <a href="{{ block.settings.btn_url }}" style="color:{{ block.settings.btn_col }};background:{{ block.settings.btn_bgcol }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_102)">
+                      <path d="M16.2197 1.90967V31.3701" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                      <path d="M30.95 16.6399H1.4895" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_102">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.384766 0.804932)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                </div>
+              {% endif %} 
+            </div>
+            <div class="slider_col_middle">
+              {% if block.settings.middle_img != blank %}
+                <div class="middle_img">
+                  {{ block.settings.middle_img| image_url: width: block.settings.middle_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+            <div class="slider_col_right">
+              {% if block.settings.right_img != blank %}
+                <div class="right_img">
+                  {{ block.settings.right_img| image_url: width: block.settings.right_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+       {% endcase %}
+     {% endfor %}
+    </div>
+    <div  class="tab slider_inner" data-id="tab2">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'second_tab' %}
+           <div class="slider_col" id="slider_col-{{ block.id }}"> 
+            <div class="slider_col_left">
+              {% if block.settings.title != blank %}
+                <h2>{{ block.settings.title }}</h2>
+              {% endif %}
+              {% if block.settings.tag_line != blank %}
+                <h4>{{ block.settings.tag_line }}</h4>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %}
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %} 
+                <div class="primary_btn">
+                <a href="{{ block.settings.btn_url }}" style="color:{{ block.settings.btn_col }};background:{{ block.settings.btn_bgcol }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_102)">
+                      <path d="M16.2197 1.90967V31.3701" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                      <path d="M30.95 16.6399H1.4895" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_102">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.384766 0.804932)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                </div>
+              {% endif %} 
+            </div>
+            <div class="slider_col_middle">
+              {% if block.settings.middle_img != blank %}
+                <div class="middle_img">
+                  {{ block.settings.middle_img| image_url: width: block.settings.middle_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+            <div class="slider_col_right">
+              {% if block.settings.right_img != blank %}
+                <div class="right_img">
+                  {{ block.settings.right_img| image_url: width: block.settings.right_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+    <div  class="tab slider_inner" data-id="tab3">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'third_tab' %}
+           <div class="slider_col" id="slider_col-{{ block.id }}"> 
+            <div class="slider_col_left">
+              {% if block.settings.title != blank %}
+                <h2>{{ block.settings.title }}</h2>
+              {% endif %}
+              {% if block.settings.tag_line != blank %}
+                <h4>{{ block.settings.tag_line }}</h4>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %}
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %} 
+                <div class="primary_btn">
+               <a href="{{ block.settings.btn_url }}" style="color:{{ block.settings.btn_col }};background:{{ block.settings.btn_bgcol }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_102)">
+                      <path d="M16.2197 1.90967V31.3701" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                      <path d="M30.95 16.6399H1.4895" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_102">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.384766 0.804932)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+                </div>
+              {% endif %} 
+            </div>
+            <div class="slider_col_middle">
+              {% if block.settings.middle_img != blank %}
+                <div class="middle_img">
+                  {{ block.settings.middle_img| image_url: width: block.settings.middle_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+            <div class="slider_col_right">
+              {% if block.settings.right_img != blank %}
+                <div class="right_img">
+                  {{ block.settings.right_img| image_url: width: block.settings.right_img.width | image_tag: loading: 'lazy'}}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+  </div> 
+</section>  
+<script>
+document.addEventListener("DOMContentLoaded", (event) => {
+    $('.psc_tabs_slider .tab_button').click(function () {
+        $(".psc_tabs_slider .tab").removeClass('active-tab');
+        $(".psc_tabs_slider .tab[data-id='" + $(this).attr('data-id') + "']").addClass("active-tab");
+        $(".psc_tabs_slider .tab_button").removeClass('active-a');
+        $(this).addClass('active-a');
+        var tabIndex = $(".psc_tabs_slider .tab_button").index(this);
+        $slider.slick('slickGoTo', tabIndex);
+        $slider.slick('slickCurrentSlide', tabIndex);
+
+        updateSliderCounter($slider.slick('getSlick'), tabIndex);
+    });
+
+    var $slider = $('.psc_tabs_slider .slider_inner');
+    var $sliderCounter = $('.psc_tabs_slider .tab_count');
+    if ($slider.length) {
+        $slider.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            dots: false
+        });
+        var currentSlide;
+        var slidesCount; 
+
+        var updateSliderCounter = function (slick, currentIndex) {
+            currentSlide = currentIndex + 1;
+            slidesCount = $('.psc_tabs_slider .tab_btn li').length;
+            $sliderCounter.text('0' + currentSlide + 'of 0' + slidesCount);
+
+        };
+        $slider.on('afterChange', function (event, slick, currentSlide) {
+            updateSliderCounter(slick, currentSlide);
+        });
+        $slider.on('init', function (event, slick) {
+            updateSliderCounter(slick, 0);
+        });
+        updateSliderCounter($slider.slick('getSlick'), 0);
+    }
+  $('.psc_tabs_slider .tab_button').on('click', function() {
+    $('.psc_tabs_slider .slider_inner').slick('setPosition');
+});
+});
+
+</script>
+
+{% schema %}
+  { 
+    "name": "PS Tab Slider",
+    "settings": [ 
+       {
+          "type": "text", 
+          "id": "tab1_heading",
+          "label": "Tab Heading",
+          "default": "Tea"
+        },
+        {
+          "type": "text",
+          "id": "tab2_heading",
+          "label": "Tab Heading",
+          "default": "sparkling water"
+        },
+        {
+          "type": "text",
+          "id": "tab3_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type":"header",
+          "content":"Section Color Setting"
+        }, 
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "font4_color",
+          "label": "Font Color",
+          "default": "#FFAD14"
+        },
+        {
+          "type":"header",
+          "content":"Section Desktop Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "desktop_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        },
+        {
+          "type":"header",
+          "content":"Section Mobile Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "mbl_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        }
+    ],
+    "blocks":[
+      {
+        "type":"first_tab",
+        "name":"First Tab",
+        "settings":[
+          {
+             "type": "image_picker",
+             "id": "bg_image",
+             "label": "BG Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "CBDª Formulated"
+          },
+          {
+            "type": "text",
+            "id": "tag_line",
+            "label": "Tag Line",
+            "default": "Naturally caffeinated"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Activi-tea"
+          }, 
+          {
+            "type": "richtext",
+            "id": "desc",
+            "label": "Discription",
+            "default": "<p>Antioxidant rich, sweetened with Monkfruit. All natural.</p>"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+          },
+          {
+            "type": "color",
+            "id": "btn_col",
+            "label": "Button Color",
+            "default": "#fff"
+          },
+          {
+            "type": "color",
+            "id": "btn_bgcol",
+            "label": "Button Background",
+            "default": "#053527" 
+          },
+          { 
+             "type": "image_picker", 
+             "id": "middle_img",
+             "label": "Middle Image"
+          },
+          {
+             "type": "image_picker",
+             "id": "right_img",
+             "label": "Right Image"
+          },
+          {
+            "type":"header",
+            "content":"Section Color Setting"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#FFAD14"
+          },
+          {
+            "type": "color",
+            "id": "tag_line_color",
+            "label": "Tag Line Color",
+            "default": "#053527"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading Color",
+            "default": "#93BEE3"
+          },
+          {
+            "type": "color",
+            "id": "desc_color",
+            "label": "Description Color",
+            "default": "#000"
+          }
+        ]
+      },
+      {
+        "type":"second_tab",
+        "name":"Second Tab",
+        "settings":[
+          {
+             "type": "image_picker",
+             "id": "bg_image",
+             "label": "BG Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "CBDª Formulated"
+          },
+          {
+            "type": "text",
+            "id": "tag_line",
+            "label": "Tag Line",
+            "default": "Naturally caffeinated"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "ACtivi-tea"
+          }, 
+          {
+            "type": "richtext",
+            "id": "desc",
+            "label": "Discription",
+            "default": "<p>Antioxidant rich, sweetened with Monkfruit. All natural.</p>"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+          },
+          { 
+             "type": "image_picker",
+             "id": "middle_img",
+             "label": "Middle Image"
+          },
+          {
+             "type": "image_picker",
+             "id": "right_img",
+             "label": "Right Image"
+          },
+          {
+            "type":"header",
+            "content":"Section Color Setting"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#FFAD14"
+          },
+          {
+            "type": "color",
+            "id": "tag_line_color",
+            "label": "Tag Line Color",
+            "default": "#053527"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading Color",
+            "default": "#93BEE3"
+          },
+          {
+            "type": "color",
+            "id": "desc_color",
+            "label": "Description Color",
+            "default": "#000"
+          }
+        ]
+      },
+        {
+        "type":"third_tab", 
+        "name":"Third Tab",
+        "settings":[
+          {
+             "type": "image_picker",
+             "id": "bg_image",
+             "label": "BG Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "CBDª Formulated"
+          },
+          {
+            "type": "text",
+            "id": "tag_line",
+            "label": "Tag Line",
+            "default": "Naturally caffeinated"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "ACtivi-tea"
+          }, 
+          {
+            "type": "richtext", 
+            "id": "desc",
+            "label": "Discription",
+            "default": "<p>Antioxidant rich, sweetened with Monkfruit. All natural.</p>"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+          },
+          { 
+             "type": "image_picker",
+             "id": "middle_img",
+             "label": "Middle Image"
+          },
+          {
+             "type": "image_picker",
+             "id": "right_img",
+             "label": "Right Image"
+          },
+          {
+            "type":"header",
+            "content":"Section Color Setting"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#FFAD14"
+          },
+          {
+            "type": "color",
+            "id": "tag_line_color",
+            "label": "Tag Line Color",
+            "default": "#053527"
+          },
+          {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading Color",
+            "default": "#93BEE3"
+          },
+          {
+            "type": "color",
+            "id": "desc_color",
+            "label": "Description Color",
+            "default": "#000"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "PS Tab Slider"
+    }
+  ]
+  }
+{% endschema %}

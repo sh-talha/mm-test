@@ -1,0 +1,206 @@
+<style>
+  .scroll-down--main {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    bottom: 50px;
+    display: flex;
+    color: #fff;
+    gap: 50px;
+    align-items: center;
+    cursor: pointer;
+  }
+  .scroll-down--main p{
+    margin: 0;
+    font-family: 'Inter';
+    letter-spacing: 3.84px;
+    text-transform: uppercase;
+  }
+ .down-block {
+    display: flex;
+    width: 42px;
+    height: 72px;
+    border: 3px solid #fff;
+    border-radius: 30px;
+  }
+  .down-dot {
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: #fff;
+    margin: 0px auto;
+    border-radius: 50%;
+  }
+ .down-dot{
+    animation: up-down linear 4s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+  }
+
+@keyframes up-down {
+  0% {
+    transform:  translate(1px,20px)  ;
+  }
+  24% {
+    transform:  translate(1px,30px)  ;
+  }
+  50% {
+    transform:  translate(1px,12px)  ;
+  }
+  74% {
+    transform:  translate(1px,22px)  ;
+  }
+  100% {
+    transform:  translate(1px,22px)  ;
+  }
+}
+ .ps-banner--main {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 150px 0px;
+   position: relative;
+ }
+  .ps-banner--slider{ 
+    max-width: 700px;
+    margin: auto;
+  }
+  .ps_slide {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out;
+  } 
+  .slick-active.slick-center .ps_slide{
+    transform: scale(1);
+  }
+  .ps-banner--slider .slick-prev, .ps-banner--slider .slick-next{
+    background:#231F20 !important;
+  }
+@media screen and (max-width: 1199px) {
+  .slick-slide img {
+    max-width: 220px;
+    height: auto; 
+  }
+}
+@media screen and (max-width: 767px) {
+  .slick-slide img {
+    max-width: 150px;
+    height: auto;
+  }
+}
+</style>
+<div class="ps-banner--main">
+  <div class="ps-banner--slider">
+  {% for block in section.blocks %}
+     {% if block.settings.image_bg != blank %}
+    {% assign img_bg_url = block.settings.image_bg | img_url: 'master' %}
+    <div data-bg="{{ img_bg_url }}">
+      <div class="ps_slide">
+        {% if block.settings.image != blank %}
+         {{ block.settings.image | image_url:width:block.settings.image.width | image_tag:loading:'lazy' }}
+        {% endif %}
+      </div>
+    </div>
+       {% endif %}
+  {% endfor %}
+</div>
+  <div class="scroll-down--main">
+    <p>Scroll</p>
+    <span class="down-block">
+      <span class="down-dot"></span>
+    </span>
+    <p>Down</p>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    // Iterate over each .ps-banner--main element
+    $('.ps-banner--main').each(function() {
+      var $slider = $(this);
+      
+      // Initialize the slick slider for this specific .ps-banner--main
+      $slider.find('.ps-banner--slider').slick({
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 3,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: true,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 580,
+            settings: {
+              arrows: true,
+              centerMode: true,
+              centerPadding: '10px',
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: true,
+              centerMode: true,
+              centerPadding: '40px',
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+      
+      // Function to update background image
+      function updateBackgroundImage(slick, currentSlide) {
+        var currentSlideElement = slick.$slides.get(currentSlide);
+        var newBackgroundImage = $(currentSlideElement).data('bg');
+        $slider.css('background-image', 'url(' + newBackgroundImage + ')');
+      }
+
+      // Set initial background image based on the first slide
+      updateBackgroundImage($slider.find('.ps-banner--slider').slick('getSlick'), $slider.find('.ps-banner--slider').slick('slickCurrentSlide'));
+
+      // Listen to the afterChange event to update the background dynamically
+      $slider.find('.ps-banner--slider').on('afterChange', function(event, slick, currentSlide) {
+        updateBackgroundImage(slick, currentSlide);
+      });
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "PS Banner",
+    "settings": [],
+      "blocks": [
+        {
+          "type": "slide",
+          "name": "Slide",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image_bg",
+              "label": "Slide Background Image"
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Slide Image"
+            }
+          ]
+        }
+      ],
+    "presets": [
+    {
+      "name": "PS Banner"
+    }
+  ]
+  }
+{% endschema %}

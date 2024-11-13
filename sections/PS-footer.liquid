@@ -1,0 +1,660 @@
+<style>
+.psc_footer .container {
+  max-width: 1535px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.psc_footer .footer_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+.psc_footer .footer_content{
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  max-width: 1092px;
+  margin: 0 auto;
+}
+.psc_footer h3{
+  text-align: center;
+      font-family: "Town 50 Chic";
+  font-size: 16.921px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.psc_footer h2{
+  text-align: center;
+      font-family: "Town 50 Chic";
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 57.6px;
+  letter-spacing: 0.512px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.psc_footer .field {
+  margin: 0 auto;
+  max-width: 801px;
+  gap: 10px;
+}
+.psc_footer .field__input{
+  background: transparent;
+  border: 1px solid #FFF;
+  max-width: 482px;
+  height: unset;
+  padding: 17px 53px;
+  color: #fff;
+     font-family: "Town 50 Chic";
+}
+input::placeholder {
+  display:block !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+.field__input:focus{
+  padding: 17px 53px !important;
+}
+.psc_footer .field:after{
+  bottom:unset;
+  left:unset;
+  border: unset;
+}
+.psc_footer .field__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 4.992px;
+  text-transform: uppercase;
+  width: 236px;
+  background: #FFAD14;
+  position: unset;
+  color: #FFF;
+  height: 100%;
+      font-family: "Town 50 Chic";
+}
+.psc_footer .btn_svg {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.psc_footer .submit_svg {
+  background: #FFAD14;
+  height: 70px;
+  width: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.psc_footer .field__label{
+      font-family: "Town 50 Chic";
+  font-size: 19.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.966px;
+  text-transform: uppercase;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.psc_footer .footer_link {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 37% 63%;
+}
+.psc_footer .bottom_nav,
+.psc_footer .ft_social_links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 2px solid #FFF;
+  border-right: 1px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  border-left: 2px solid #FFF;
+  margin: 0;
+}
+.psc_footer .bottom_nav{
+  height: 100%;
+}
+.psc_footer .ft_social_links {
+  padding: 35px 0;
+}
+.psc_footer li{
+  list-style:none;
+}
+.psc_footer a{
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 33.28px;
+  letter-spacing: 3.328px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+}
+#psc_footer-{{ section.id }} {
+  background-color:{{section.settings.bg_color}};
+  padding-top:{{ section.settings.padding_top_desktop }}px;
+  padding-bottom:{{ section.settings.padding_bottom_desktop }}px;
+  margin-top:{{ section.settings.margin_top_desktop }}px;
+  margin-bottom:{{ section.settings.margin_bottom_desktop }}px;
+}
+#psc_footer-{{ section.id }} h2,
+#psc_footer-{{ section.id }} a,
+#psc_footer-{{ section.id }} .field__label,
+#psc_footer-{{ section.id }} input::placeholder{
+  color: {{section.settings.text_color}};
+}
+#psc_footer-{{ section.id }} h3{
+  color: {{section.settings.top_text_color}};
+}
+  .footer_botm{
+    padding: 40px 0px;
+    background: #fff;
+  }
+  .footer_botm p{
+    margin: 0;
+    font-family: "Town 50 Chic";
+    font-size: 15.822px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29.44px;
+    letter-spacing: 3.328px;
+    text-transform: uppercase;
+    color: #000;
+    width: 50%;
+    text-align: center;
+  }
+  .footer_botm .footer_botm-inner{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .footer_botm-link{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  } 
+  .footer_botm a{
+    font-family: "Town 50 Chic";
+    font-size: 16.211px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29.44px;
+    letter-spacing: 3.328px;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    padding: 0px 100px;
+    position: relative;
+    border-right: 4px solid;
+  }
+  .footer_botm a:last-child{
+     border-right: 0px;
+  }
+@media (max-width: 1199px){
+  
+  .psc_footer h2 {
+    font-size: 37px;
+    line-height: 45px;
+  }
+}
+@media (max-width: 991px){
+  .psc_footer .footer_inner {
+    gap: 45px;
+  }
+  .psc_footer h2 {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  .footer_botm .footer_botm-inner {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+  .footer_botm p {
+    letter-spacing: 3.328px;
+    width: 100%;
+}
+}
+@media (max-width: 767px){
+  #psc_footer-{{ section.id }} {
+    padding-top:{{ section.settings.padding_top_mobile }}px;
+    padding-bottom:{{ section.settings.padding_bottom_mobile }}px;
+    margin-top:{{ section.settings.margin_top_mobile }}px;
+    margin-bottom:{{ section.settings.margin_bottom_mobile }}px;
+  }
+  .psc_footer .field {
+    flex-direction: column;
+    align-items: center;
+  }
+  .psc_footer .field__button {
+    width: 100%;
+    font-size: 14px;
+    height: 45px;
+  }
+  .psc_footer .submit_svg {
+    height: 45px;
+    width: 45px;
+  }
+  .psc_footer h3 {
+    font-size: 12px;
+  }
+  .psc_footer h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .psc_footer .footer_inner {
+    gap: 35px;
+  }
+  .psc_footer .footer_link {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .psc_footer .ft_social_links {
+    padding: 15px 0;
+  }
+  .psc_footer .bottom_nav {
+    padding: 10px 0;
+    margin-bottom:20px;
+    flex-wrap: wrap;
+  }
+  .psc_footer .bottom_nav li {
+    width: 100%;
+}
+  .psc_footer .bottom_nav a{
+    justify-content: center;
+  }
+  .psc_footer .btn_svg{
+    width: 100%;
+    max-width: 420px;
+  }
+  .footer_botm p {
+    font-size: 14.822px;
+    line-height: 20.44px;
+}
+  .footer_botm a {
+    font-size: 14.211px;
+    line-height: 18.44px;
+    padding: 10px 50px;
+}
+  .footer_botm {
+    padding: 20px 0px;
+}
+  .footer_botm-link {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    justify-content: center;
+}
+  .psc_footer .submit_svg svg{
+        width: 12px;
+  }
+}
+</style>
+<section class="psc_footer" id="psc_footer-{{ section.id }}">
+  <div class="container">
+    <div class="footer_inner">
+      <div class="footer_content">
+        {% if section.settings.subhead != blank %}
+          <h3>{{ section.settings.subhead }}</h3>
+        {% endif %}
+        {% if section.settings.headline != blank %}
+          <h2>{{ section.settings.headline }}</h2>
+        {% endif %}
+      </div>
+        <div class="newsletter-form__field-wrapper">
+          <div class="field">
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="field__input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="ContactFooter-error"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="ContactFooter-success"
+              {% endif %}
+              placeholder="Enter Email"
+              required
+            >
+
+            <span class="btn_svg">
+              <button
+                type="submit"
+                class="newsletter-form__button field__button"
+                name="commit"
+                id="Subscribe"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                Submit
+              </button>
+              <span class="submit_svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="36" viewBox="0 0 19 36" fill="none">
+  <g clip-path="url(#clip0_4_19)">
+    <path d="M1.57806 1.3905L17.7026 17.5151L1.57806 33.6396" stroke="white" stroke-width="1.97726" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_4_19">
+      <rect width="18.5111" height="35.045" fill="white" transform="translate(0.179443 -0.00756836)"/>
+    </clipPath>
+  </defs>
+</svg>
+              </span>
+            </span>
+          </div>
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="ContactFooter-error">
+              {%- render 'icon-error' -%}
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </small>
+          {%- endif -%}
+        </div>
+      <div class=footer_link>
+         {% for block in section.blocks %}
+         {% case block.type %}
+           {% when 'social_icons' %}
+           <ul class="ft_social_links">
+             {% if block.settings.fb_social_link != blank %}
+               <li>
+                 <a href="{{ block.settings.fb_social_link }}" target="_blank">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none"><g clip-path="url(#clip0_4_24)"><path d="M18.7575 32.2799V17.8347H23.6042L24.3314 12.2036H18.7575V8.60887C18.7575 6.97902 19.2083 5.86829 21.5481 5.86829L24.5276 5.86707V0.830334C24.0123 0.763376 22.2436 0.609863 20.1851 0.609863C15.8865 0.609863 12.9437 3.23367 12.9437 8.05116V12.2036H8.08228V17.8347H12.9437V32.2799H18.7575Z" fill="white"/></g><defs><clipPath id="clip0_4_24"><rect width="31.67" height="31.67" fill="white" transform="translate(0.469971 0.609863)"/></clipPath></defs></svg>
+                 </a>
+               </li>
+             {% endif %}
+             {% if block.settings.insta_social_link != blank %}
+               <li>
+                 <a href="{{ block.settings.insta_social_link }}" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_27)">
+                      <path d="M22.6631 0.609863H10.7869C5.32184 0.609863 0.890015 5.04168 0.890015 10.5067V22.383C0.890015 27.848 5.32184 32.2799 10.7869 32.2799H22.6631C28.1282 32.2799 32.56 27.848 32.56 22.383V10.5067C32.56 5.04168 28.1282 0.609863 22.6631 0.609863ZM29.591 22.383C29.591 26.2032 26.4833 29.3108 22.6631 29.3108H10.7869C6.9667 29.3108 3.85908 26.2032 3.85908 22.383V10.5067C3.85908 6.68654 6.9667 3.57893 10.7869 3.57893H22.6631C26.4833 3.57893 29.591 6.68654 29.591 10.5067V22.383Z" fill="white"/>
+                      <path d="M16.7255 8.52734C12.3528 8.52734 8.8075 12.0726 8.8075 16.4453C8.8075 20.818 12.3528 24.3633 16.7255 24.3633C21.0982 24.3633 24.6434 20.818 24.6434 16.4453C24.6434 12.0726 21.0982 8.52734 16.7255 8.52734ZM16.7255 21.3941C13.9977 21.3941 11.7767 19.1731 11.7767 16.4453C11.7767 13.7156 13.9977 11.4966 16.7255 11.4966C19.4532 11.4966 21.6742 13.7156 21.6742 16.4453C21.6742 19.1731 19.4532 21.3941 16.7255 21.3941Z" fill="white"/><path d="M25.2363 8.9888C25.819 8.9888 26.2914 8.51643 26.2914 7.93373C26.2914 7.35103 25.819 6.87866 25.2363 6.87866C24.6536 6.87866 24.1813 7.35103 24.1813 7.93373C24.1813 8.51643 24.6536 8.9888 25.2363 8.9888Z" fill="white"/></g><defs>
+                      <clipPath id="clip0_4_27">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.890015 0.609863)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                 </a>
+               </li>
+             {% endif %}
+             {% if block.settings.twitter_social_link != blank %}
+               <li>
+                 <a href="{{ block.settings.twitter_social_link }}" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+                    <g clip-path="url(#clip0_4_37)">
+                      <path d="M31.9801 6.62536C30.8023 7.14198 29.5474 7.48441 28.239 7.65068C29.585 6.84705 30.6123 5.58421 31.0953 4.06207C29.8404 4.81027 28.4548 5.33877 26.9782 5.63369C25.7866 4.36491 24.0883 3.5791 22.2356 3.5791C18.6411 3.5791 15.7472 6.4967 15.7472 10.0734C15.7472 10.5881 15.7908 11.0829 15.8976 11.554C10.4999 11.2907 5.72365 8.7037 2.51508 4.76277C1.95492 5.73464 1.62634 6.84705 1.62634 8.04457C1.62634 10.2931 2.78428 12.2864 4.51029 13.4403C3.46716 13.4206 2.44382 13.1177 1.57686 12.6407C1.57686 12.6605 1.57686 12.6862 1.57686 12.7119C1.57686 15.8671 3.82741 18.4878 6.77866 19.0915C6.25016 19.236 5.67416 19.3052 5.07639 19.3052C4.66072 19.3052 4.2411 19.2815 3.8472 19.1944C4.68844 21.7656 7.07556 23.6559 9.91399 23.7173C7.705 25.4453 4.90023 26.4864 1.86387 26.4864C1.33142 26.4864 0.820737 26.4627 0.310059 26.3973C3.18609 28.252 6.59457 29.311 10.2703 29.311C22.2178 29.311 28.7497 19.4141 28.7497 10.8355C28.7497 10.5485 28.7398 10.2714 28.726 9.99624C30.0145 9.08176 31.0973 7.93966 31.9801 6.62536Z" fill="white"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_37">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.310059 0.609863)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                 </a>
+               </li>
+             {% endif %}
+             {% if block.settings.youtube_social_link != blank %}
+               <li>
+                 <a href="{{ block.settings.youtube_social_link }}" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_41)">
+                      <path d="M31.7477 8.82751C31.3824 7.47097 30.3129 6.4014 28.9563 6.03618C26.478 5.35791 16.5649 5.35791 16.5649 5.35791C16.5649 5.35791 6.65177 5.35791 4.17349 6.01009C2.84304 6.37531 1.74738 7.47097 1.38216 8.82751C0.72998 11.3058 0.72998 16.445 0.72998 16.445C0.72998 16.445 0.72998 21.6102 1.38216 24.0624C1.74738 25.419 2.81696 26.4885 4.17349 26.8538C6.67786 27.532 16.5649 27.532 16.5649 27.532C16.5649 27.532 26.478 27.532 28.9563 26.8798C30.3129 26.5146 31.3824 25.4451 31.7477 24.0885C32.3998 21.6102 32.3998 16.4711 32.3998 16.4711C32.3998 16.4711 32.4259 11.3058 31.7477 8.82751Z" fill="white"/>
+                      <path d="M21.6524 16.4452L13.4083 11.697V21.1933L21.6524 16.4452Z" fill="black"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_41">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.72998 0.609863)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                 </a>
+               </li>
+             {% endif %}
+                  
+           </ul>
+           {% endcase %}
+           {% endfor %}
+  
+          {% for block in section.blocks %}
+         {% case block.type %}
+           {% when 'menu' %}    
+           <div class="bottom_nav">
+            {%- for link in block.settings.menu.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+            </div>
+           {% endcase %}
+         {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+                          <div class="footer_botm">
+                             <div class="page-width">
+                                <div class="footer_botm-inner">
+                                  <p>{{ section.settings.copy_right }}</p>
+                              <div class="footer_botm-link">
+                                {% if section.settings.link_url1 !=blank %}
+                                <a href="{{ section.settings.link_url1 }}">{{ section.settings.link_text1 }}</a>
+                                {% endif %}
+                                {% if section.settings.link_url2 !=blank %}
+                                <a href="{{ section.settings.link_url2 }}">{{ section.settings.link_text2 }}</a>
+                                {% endif %}
+                              </div>
+                                </div>
+                             </div>
+                          </div>
+{% schema %}
+  {
+    "name": "PSC Footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#053527"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "top_text_color",
+        "label": "Subhead Color",
+        "default": "#FFAD14"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top Desktop",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom Desktop",
+        "default": 0
+       },
+       {
+        "type": "range",
+        "id": "margin_top_desktop",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top Desktop",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom Desktop",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom Mobile",
+        "default": 0
+       },
+       {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 400,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom Mobile",
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "subhead",
+        "label": "Subhead",
+        "default": "Join the puresource Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headine",
+        "default": "SIGN UP TO GET FIRST ACCESS AND UPDATES ABOUT PRODUCTS, investments & MORE."
+      },
+       {
+          "type": "header",
+          "content": "Footer Bottom"
+        },
+      {
+        "type": "text",
+        "id": "copy_right",
+        "label": "Copy Rights",
+        "default": "© 2024 Puresource Beverage Company. All rights reserved."
+      },
+      {
+        "type": "text",
+        "id": "link_text1",
+        "label": "Link Title"
+      },
+       {
+        "type": "url",
+        "id": "link_url1",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "link_text2",
+        "label": "Link Title"
+      },
+       {
+        "type": "url",
+        "id": "link_url2",
+        "label": "Link"
+      }
+    ],
+    "blocks":[
+      {
+       "type":"social_icons",
+        "name":"Social Icons",
+        "settings":[
+          {
+            "type":"url",
+            "id":"fb_social_link",
+            "label":"Facebook Link"
+          },
+          {
+            "type":"url",
+            "id":"insta_social_link",
+            "label":"Instagram Link"
+          },
+          {
+            "type":"url",
+            "id":"twitter_social_link",
+            "label":"Twitter Link"
+          },
+          {
+            "type":"url",
+            "id":"youtube_social_link",
+            "label":"Youtube Link"
+          }
+        ]
+      },
+     {
+       "type":"menu",
+        "name":"Menu",
+        "settings":[
+         {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Footer Menu"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"PSC Footer"
+      }
+    ]
+  }
+{% endschema %}

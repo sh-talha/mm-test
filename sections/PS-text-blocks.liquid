@@ -1,0 +1,391 @@
+<style>
+  .ps_tb-main{
+    width: 100%;
+    height: auto;
+  }
+  .ps_tb-inner{
+    display: flex;
+    justify-content: space-between;
+  }
+  .ps_tb-left, .ps_tb-right{
+    width: calc(50% - 100px);
+  }
+  .ps_tbl-text h2{
+    color: #053527;
+    font-size: 45.3px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 57.6px;
+    letter-spacing: 0.512px;
+    text-transform: uppercase;
+    margin: 0px 0px 25px 0px;
+  }
+  .ps_tbl-text p{
+    color: #ADAFB2;
+    font-family: "Martel Sans";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34.12px;
+    letter-spacing: 0.64px;
+    margin: 0;
+  }
+  .ps_tbl-img{
+    display: block;
+    margin-top: 50px;
+  }
+  .ps_tbl-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ps_tbr-text{
+    display: block;
+    margin-bottom: 65px;
+  }
+  .ps_tbr-text h3{
+    margin: 0;
+    color: #053527;
+    font-size: 32.573px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44.8px;
+    letter-spacing: 0.384px;
+    text-transform: uppercase;
+    max-width: 600px;
+    margin-bottom: 25px;
+  }
+  .ps_tbr-text p{
+    margin: 0;
+    color: #ADAFB2;
+    font-family: "Martel Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 37.12px;
+    letter-spacing: 0.64px;
+  }
+  .ps_tbr-text + .ps_tbr-text{
+    margin-bottom: 50px;
+  }
+  .ps_tbr-social{
+    display: flex;
+    gap: 60px;
+  }
+  .ps_tbr-social a{
+    display: block;
+    width: 50px;
+    height: 50px;
+  }
+  .ps_tbr-social a svg{
+    width: 100%;
+  }
+@media screen and (max-width: 1600px) {
+.ps_tbl-text h2 {
+  font-size: 30.3px;
+  line-height: 42.6px;
+  margin: 0px 0px 15px 0px;
+  max-width: 440px; 
+}
+.ps_tbl-text p {
+  font-size: 16px;
+  line-height: 28.12px;
+}
+.ps_tbr-text {
+  margin-bottom: 40px;
+}
+.ps_tbr-text h3 {
+  font-size: 28.573px;
+  line-height: 38.8px;
+  max-width: 420px;
+  margin-bottom: 15px;
+}
+.ps_tbr-text p {
+  font-size: 16px;
+  line-height: 28.12px;
+}
+}
+@media screen and (max-width: 1199px) {
+.ps_tbl-text h2 { 
+  font-size: 22.3px;
+  line-height: 32.6px;
+  margin: 0px 0px 10px 0px;
+  max-width: 330px;
+}
+.ps_tbr-text {
+  margin-bottom: 25px;
+}
+.ps_tbr-text h3 {
+  font-size: 22.573px;
+  line-height: 30.8px;
+  max-width: 335px;
+  margin-bottom: 10px;
+}
+}
+@media screen and (max-width: 991px) {
+.ps_tb-inner {
+    flex-direction: column;
+}
+.ps_tbl-img {
+  margin-top: 30px;
+}
+.ps_tb-left, .ps_tb-right {
+  width: 100%;
+}
+.ps_tbr-text + .ps_tbr-text {
+  margin-bottom: 20px;
+}
+.ps_tbr-social {
+  gap: 30px;
+  justify-content: center;
+}
+.ps_tbr-social a {
+  width: 30px;
+  height: 30px;
+}
+}
+</style>
+{% style %}
+#ps_tb-main-{{ section.id }} {
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) { 
+  #ps_tb-main-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px;
+  }
+}    
+  
+{% endstyle %}
+<div class="ps_tb-main" id="ps_tb-main-{{ section.id }}">
+  <div class="page-width">
+    <div class="ps_tb-inner">
+       {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'left-block' -%}
+            <div class="ps_tb-left">
+               <span class="ps_tbl-text">
+                 {{ block.settings.text1 }}
+               </span>
+              <span class="ps_tbl-img">
+                {% if block.settings.image != blank %}
+                 {{ block.settings.image | image_url:width:block.settings.image.width | image_tag:loading:'lazy' }}
+                {% endif %}
+              </span>
+            </div>
+            {%- when 'right-block' -%}
+            <div class="ps_tb-right">
+              <span class="ps_tbr-text">
+                {{ block.settings.textr1 }}
+              </span>
+              <span class="ps_tbr-text">
+                {{ block.settings.textr2 }}
+              </span>
+              <div class="ps_tbr-social">
+            {% if block.settings.fb != blank %}
+                <a href="{{ block.settings.fb }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                    <g clip-path="url(#clip0_4_459)">
+                      <path d="M30.4574 52.6701V28.6831H38.5056L39.7131 19.3321H30.4574V13.3629C30.4574 10.6565 31.2059 8.81203 35.0914 8.81203L40.0389 8.80999V0.446183C39.1833 0.334996 36.2463 0.0800781 32.828 0.0800781C25.6899 0.0800781 20.8031 4.43707 20.8031 12.4368V19.3321H12.7305V28.6831H20.8031V52.6701H30.4574Z" fill="#ADAFB2"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_459">
+                        <rect width="52.59" height="52.59" fill="white" transform="translate(0.0898438 0.0800781)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              {% endif %}
+                          {% if block.settings.insta != blank %}
+            <a href="{{ block.settings.insta }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                <g clip-path="url(#clip0_4_462)">
+                  <path d="M36.2054 0.0800781H16.4842C7.40912 0.0800781 0.0498047 7.43939 0.0498047 16.5145V36.2357C0.0498047 45.3108 7.40912 52.6701 16.4842 52.6701H36.2054C45.2805 52.6701 52.6398 45.3108 52.6398 36.2357V16.5145C52.6398 7.43939 45.2805 0.0800781 36.2054 0.0800781ZM47.7095 36.2357C47.7095 42.5794 42.5491 47.7398 36.2054 47.7398H16.4842C10.1405 47.7398 4.98012 42.5794 4.98012 36.2357V16.5145C4.98012 10.1708 10.1405 5.01039 16.4842 5.01039H36.2054C42.5491 5.01039 47.7095 10.1708 47.7095 16.5145V36.2357Z" fill="#ADAFB2"/>
+                  <path d="M26.3448 13.2275C19.0841 13.2275 13.1973 19.1143 13.1973 26.375C13.1973 33.6357 19.0841 39.5225 26.3448 39.5225C33.6055 39.5225 39.4923 33.6357 39.4923 26.375C39.4923 19.1143 33.6055 13.2275 26.3448 13.2275ZM26.3448 34.5922C21.8155 34.5922 18.1276 30.9044 18.1276 26.375C18.1276 21.8424 21.8155 18.1579 26.3448 18.1579C30.8741 18.1579 34.562 21.8424 34.562 26.375C34.562 30.9044 30.8741 34.5922 26.3448 34.5922Z" fill="#ADAFB2"/>
+                  <path d="M40.4786 13.9937C41.4462 13.9937 42.2306 13.2093 42.2306 12.2417C42.2306 11.274 41.4462 10.4896 40.4786 10.4896C39.511 10.4896 38.7266 11.274 38.7266 12.2417C38.7266 13.2093 39.511 13.9937 40.4786 13.9937Z" fill="#ADAFB2"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_4_462">
+                    <rect width="52.59" height="52.59" fill="white" transform="translate(0.0498047 0.0800781)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+                            {% endif %}
+                      {% if block.settings.twitter !=blank %}
+            <a href="{{ block.settings.twitter }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                <g clip-path="url(#clip0_4_472)">
+                  <path d="M52.59 10.0689C50.6343 10.9268 48.5504 11.4954 46.3778 11.7715C48.6129 10.437 50.3188 8.33998 51.1208 5.81237C49.0369 7.05481 46.7361 7.93241 44.2841 8.42215C42.3054 6.31527 39.4852 5.01038 36.4087 5.01038C30.4397 5.01038 25.6343 9.85523 25.6343 15.7946C25.6343 16.6492 25.7066 17.4709 25.8841 18.2532C16.9208 17.816 8.9896 13.5201 3.66158 6.97593C2.73139 8.58978 2.18577 10.437 2.18577 12.4256C2.18577 16.1595 4.10859 19.4693 6.97475 21.3856C5.24257 21.3527 3.54325 20.8498 2.1036 20.0577C2.1036 20.0906 2.1036 20.1333 2.1036 20.176C2.1036 25.4153 5.84078 29.7671 10.7415 30.7696C9.86391 31.0096 8.90743 31.1246 7.91479 31.1246C7.22455 31.1246 6.52773 31.0852 5.87365 30.9405C7.27057 35.2102 11.2345 38.3492 15.9479 38.451C12.2798 41.3205 7.62226 43.0494 2.5802 43.0494C1.69603 43.0494 0.848014 43.0099 0 42.9015C4.77583 45.9813 10.4358 47.7398 16.5396 47.7398C36.3791 47.7398 47.2258 31.3054 47.2258 17.0601C47.2258 16.5835 47.2094 16.1233 47.1864 15.6664C49.3261 14.1479 51.1241 12.2514 52.59 10.0689Z" fill="#ADAFB2"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_4_472">
+                    <rect width="52.59" height="52.59" fill="white" transform="translate(0 0.0800781)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+                        {% endif %}
+              </div>
+            </div>
+      {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "PS Text Blocks",
+    "settings": [
+      {
+        "type":"header",
+        "content":"Section Desktop Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "desktop_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      },
+      {
+        "type":"header",
+        "content":"Section Mobile Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "mbl_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      }
+
+    ],
+    "blocks": [
+    {
+      "type": "left-block",
+      "name": "Left Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text1",
+          "label": "Content"
+        },
+        { 
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+      {
+      "type": "right-block",
+      "name": "Right Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "textr1",
+          "label": "Content"
+        },
+        {
+          "type": "richtext",
+          "id": "textr2",
+          "label": "Content"
+        },
+        {
+          "type": "url",
+          "id": "fb",
+          "label": "Facebook Url"
+        },
+        {
+          "type": "url",
+          "id": "insta",
+          "label": "Instagram Url"
+        },
+        {
+          "type": "url",
+          "id": "twitter",
+          "label": "Twitter Url"
+        }
+      ]
+    }
+    ],
+     "presets": [
+    {
+      "name": "PS Text Blocks"
+    }
+  ]
+  }
+{% endschema %}

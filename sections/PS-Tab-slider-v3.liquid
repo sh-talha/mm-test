@@ -1,0 +1,1487 @@
+{% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css"/> {% endcomment %}
+<style>
+
+.PS_tab_with_slider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom:60px;
+}
+.PS_tab_with_slider .contianer {
+  max-width: 100%;
+  padding: 0;
+}
+.PS_tab_with_slider .tab-menu {
+  display: flex; 
+  width: 100%;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: flex-start;
+  background: #EFEFEF;
+}
+.PS_tab_with_slider .tab_btn {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+  padding: 0;
+  margin: 0px;
+}
+.PS_tab_with_slider .tab_btn li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+.PS_tab_with_slider .tab_btn .tab_link_btn {
+  color: #ADAFB2;
+  text-align: center;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 700; 
+  line-height: 26px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+}
+.PS_tab_with_slider .tab_btn li .active_span {
+  color: #000;
+} 
+.PS_tab_with_slider .slick-next:before, .PS_tab_with_slider .slick-prev:before{
+  filter: invert(1);
+}
+.PS_tab_with_slider .tab {
+  visibility:hidden;
+  opacity:0;
+  height:0;
+  overflow:hidden;
+  margin: 0;
+}
+.PS_tab_with_slider .active_tab {
+  visibility:visible;
+  opacity:1;
+  height:auto;
+}
+.PS_tab_with_slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.PS_tab_with_slider h2 {
+  text-align: center;
+  font-family: Righteous;
+  font-size: 149.219px;
+  font-style: normal;
+  line-height: 113.92px;
+  letter-spacing: -1.536px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  margin: 46px 0px 0px;
+  font-weight: 700;
+}
+.PS_tab_with_slider .tab_content_col {
+  padding: 0 20px;
+}
+.PS_tab_with_slider .slider_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.PS_tab_with_slider .image {
+  max-width: 230px;
+  height: 500px;
+  margin: 0 auto; 
+}
+.PS_tab_with_slider .bottom_content {
+  display: flex;
+  max-width: 884px;
+  padding: 0px 44px 0px 44px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12.33px;
+  margin: 0 auto;
+}
+.PS_tab_with_slider h3 {
+  text-align: center;
+  font-family: "Town 50 Chic";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 40px 25px;
+}
+.PS_tab_with_slider .desc,
+.PS_tab_with_slider .desc p {
+  text-align: center;
+  font-family: "Martel Sans";
+  font-size: 23.145px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37.12px;
+  letter-spacing: 0.64px;
+}
+  .PS_tab_with_slider .desc p{
+    margin:0px;
+  }
+@media screen and (max-width: 1520px){
+.PS_tab_with_slider h2 {
+  font-size: 110px;
+  line-height: 100px;
+}
+.PS_tab_with_slider .image {
+  max-width: 200px;
+  height: auto;
+}
+.PS_tab_with_slider h3 {
+  margin: 20px 0 15px;
+}
+}
+@media screen and (max-width: 1199px){
+.PS_tab_with_slider .slick-prev, 
+.PS_tab_with_slider .slick-next {
+  top: 60%;
+  z-index: 9;
+}
+.PS_tab_with_slider .tab_btn {
+  gap: 35px;
+}
+.PS_tab_with_slider h2 {
+  font-size: 90px;
+  margin-top: 20px;
+}
+.PS_tab_with_slider .slider_inner {
+  gap: 35px;
+}
+.PS_tab_with_slider .image {
+  max-width: 180px;
+}
+.PS_tab_with_slider h3 {
+  margin: 20px 0 0px;
+}
+}
+@media screen and (max-width: 991px){
+.PS_tab_with_slider .slick-prev, .PS_tab_with_slider .slick-next {
+  top: 50%;
+  z-index: 9;
+}
+.PS_tab_with_slider .tab_btn {
+  gap: 20px;
+}
+.PS_tab_with_slider .tab_btn .tab_link_btn {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.PS_tab_with_slider h2 {
+  font-size: 70px;
+  line-height: 78px;
+}
+.PS_tab_with_slider .image {
+  max-width: 160px;
+}
+.PS_tab_with_slider .bottom_content {
+  max-width: 72%;
+  padding: 0;
+  gap: 10px;
+}
+.PS_tab_with_slider .desc, 
+.PS_tab_with_slider .desc p {
+  font-size: 20.145px;
+  line-height: 28.12px;
+}
+}
+@media screen and (max-width: 767px) {
+.PS_tab_with_slider .slick-prev,
+.PS_tab_with_slider .slick-next {
+  top: 40%;
+  z-index: 9;
+}
+.PS_tab_with_slider .tab_btn {
+  flex-direction: column;
+  gap: 10px;
+}
+.PS_tab_with_slider h2 {
+  font-size: 35px;
+  line-height: 40px;
+  padding-bottom: 10px;
+}
+.PS_tab_with_slider .slider_inner {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.PS_tab_with_slider .image {
+  max-width: 110px;
+}
+.PS_tab_with_slider h3 {
+  font-size: 22px;
+  line-height: 32px;
+  padding-top: 20px;
+}
+.PS_tab_with_slider .bottom_content {
+  max-width: 90%;
+}
+.PS_tab_with_slider .desc p {
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: normal;
+}
+}
+</style>
+{% style %}
+#PS_tab_with_slider-{{ section.id }} h2,
+  #PS_tab_with_slider-{{ section.id }} h3 {
+ color: {{ section.settings.font1_color }};
+}
+#PS_tab_with_slider-{{ section.id }} span p  {
+  color: {{ section.settings.font2_color }};
+}
+#PS_tab_with_slider-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }}; 
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #PS_tab_with_slider-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{%  for block in section.blocks %} 
+#slider_col-{{ block.id }} { 
+  background-image: url('{{ block.settings.bg_image | img_url: 'master' }}');
+}
+{% endfor %}
+{% endstyle %}
+<section class="PS_tab_with_slider" id="PS_tab_with_slider-{{ section.id }}">
+  <div class="contianer">
+    <div class="tabs_inner">
+      <div class="tab-menu">
+        <ul class="tab_btn">
+          {% if section.settings.tab1_heading  != blank %}
+            <li><span class="tab_link_btn active_span" data-id="tab1">{{ section.settings.tab1_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab2_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab2">{{ section.settings.tab2_heading }}</span></li>
+          {% endif %} 
+          {% if section.settings.tab3_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab3">{{ section.settings.tab3_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab4_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab4">{{ section.settings.tab4_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab5_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab5">{{ section.settings.tab5_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab6_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab6">{{ section.settings.tab6_heading }}</span></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>  
+    <div  class="tab active_tab" data-id="tab1"> 
+     {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'first_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %}
+     {% endfor %}
+    </div>
+    <div  class="tab" data-id="tab2">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'second_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+               {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg> 
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+    <div  class="tab" data-id="tab3">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'third_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+    <div  class="tab" data-id="tab4">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'four_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+               {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %} 
+      {% endfor %}
+    </div>  
+    <div  class="tab" data-id="tab5">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'five_tab' %} 
+           <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2> 
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+              {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+    <div  class="tab" data-id="tab6">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'six_tab' %}
+           <div class="tab_content_col"> 
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <div class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            <div class="bottom_content">
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading }}</h3>
+              {% endif %} 
+              {% if block.settings.desc != blank %}
+                <span class="desc">{{ block.settings.desc }}</span>
+              {% endif %}
+                {% if block.settings.btn_text != blank %}
+                <div class="primary_btn">
+                      <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                          <g clip-path="url(#clip0_4_66)">
+                            <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                            <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_4_66">
+                              <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                </div>
+               {% endif %} 
+            </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+  </div> 
+</section>  
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    $('.tab_link_btn').click(function () {
+        $(".tab").removeClass('active_tab');
+        $(".tab[data-id='" + $(this).attr('data-id') + "']").addClass("active_tab");
+        $(".tab_link_btn").removeClass('active_span');
+        $(this).addClass('active_span');
+        var tabIndex = $(".tab_link_btn").index(this);
+    }); 
+    
+    $(".slider_inner").slick({ 
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplaySpeed: 0,
+      autoplay: false, 
+      variableWidth: false, 
+      arrows: true,
+      responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 5
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 4
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: {
+              slidesToShow: 3
+            }
+          }
+        ]
+    }); 
+});
+</script>
+
+{% schema %} 
+  { 
+    "name": "PS tab slider v3",
+    "settings": [ 
+       {
+          "type": "text",
+          "id": "tab1_heading",
+          "label": "Tab Heading",
+          "default": "Tea"
+        },
+        {
+          "type": "text",
+          "id": "tab2_heading",
+          "label": "Tab Heading",
+          "default": "sparkling water"
+        },
+        {
+          "type": "text",
+          "id": "tab3_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab4_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab5_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab6_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type":"header",
+          "content":"Section Color Setting"
+        }, 
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "font1_color",
+          "label": "Font 1 Color",
+          "default": "#FFAD14"
+        },
+        {
+          "type": "color",
+          "id": "font2_color",
+          "label": "Font 2 Color",
+          "default": "#ADAFB2"
+        },
+        {
+          "type":"header",
+          "content":"Section Desktop Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "desktop_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        },
+        {
+          "type":"header",
+          "content":"Section Mobile Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "mbl_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        }
+    ],
+    "blocks":[
+      {
+        "type":"first_tab",
+        "name":"First Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+     ]
+    },
+      {
+        "type":"second_tab",
+        "name":"Second Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+        ]
+      },
+      {
+        "type":"third_tab", 
+        "name":"Third Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+              {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+        ]
+      },
+      {
+        "type":"four_tab", 
+        "name":"Four Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+             {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+        ]
+      },
+      {
+        "type":"five_tab",  
+        "name":"Five Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+           {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url", 
+          "label": "Button URL"
+        }
+        ]
+      },
+      {
+        "type":"six_tab",  
+        "name":"Six Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+             {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url", 
+          "label": "Button URL"
+        }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "PS tab slider v3"
+    }
+  ]
+  }
+{% endschema %}

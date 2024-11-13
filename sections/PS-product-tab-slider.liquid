@@ -1,0 +1,919 @@
+{% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css"/> {% endcomment %}
+<style>
+
+.product_tab_slider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom:60px;
+}
+.product_tab_slider .contianer {
+  max-width: 100%;
+  padding: 0;
+}
+.product_tab_slider .tab-menu {
+  display: flex; 
+  width: 100%;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: flex-start;
+  background: #EFEFEF;
+}
+.product_tab_slider .tab_btn {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
+  padding: 0;
+  margin: 0px;
+}
+.product_tab_slider .tab_btn li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+.product_tab_slider .tab_btn .tab_link_btn {
+  color: #ADAFB2;
+  text-align: center;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 700; 
+  line-height: 26px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+}
+.product_tab_slider .tab_btn li .active_span {
+  color: #000;
+} 
+.product_tab_slider .slick-next:before, .product_tab_slider .slick-prev:before{
+  filter: invert(1);
+}
+.product_tab_slider .tab {
+  visibility:hidden;
+  opacity:0;
+  height:0;
+  overflow:hidden;
+  margin: 0;
+}
+.product_tab_slider .active_tab {
+  visibility:visible;
+  opacity:1;
+  height:auto;
+}
+.product_tab_slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.product_tab_slider h2 {
+  text-align: center;
+  font-family: Righteous;
+  font-size: 149.219px;
+  font-style: normal;
+  line-height: 113.92px;
+  letter-spacing: -1.536px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  margin: 46px 0px 0px;
+  font-weight: 700;
+}
+.product_tab_slider .tab_content_col {
+  padding: 0 20px;
+}
+.product_tab_slider .slider_inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.product_tab_slider .image {
+  max-width: 230px;
+  height: 500px;
+  margin: 0 auto; 
+}
+.product_tab_slider .slick-prev, 
+.product_tab_slider .slick-next {
+  top: 60%;
+}
+@media screen and (max-width: 1520px){
+.product_tab_slider h2 {
+  font-size: 110px;
+  line-height: 100px;
+}
+.product_tab_slider .image {
+  max-width: 200px;
+  height: auto;
+}
+}
+@media screen and (max-width: 1199px){
+.product_tab_slider .slick-prev, 
+.product_tab_slider .slick-next {
+  top: 50%;
+  z-index: 9;
+}
+.product_tab_slider .tab_btn {
+  gap: 35px;
+}
+.product_tab_slider h2 {
+  font-size: 90px;
+  margin-top: 20px;
+}
+.product_tab_slider .slider_inner {
+  gap: 35px;
+}
+.product_tab_slider .image {
+  max-width: 180px;
+}
+}
+@media screen and (max-width: 991px){
+.product_tab_slider .slick-prev, .product_tab_slider .slick-next {
+  top: 50%;
+  z-index: 9;
+}
+.product_tab_slider .tab_btn {
+  gap: 20px;
+}
+.product_tab_slider .tab_btn .tab_link_btn {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.product_tab_slider h2 {
+  font-size: 70px;
+  line-height: 78px;
+}
+.product_tab_slider .image {
+  max-width: 160px;
+}
+}
+@media screen and (max-width: 767px) {
+.product_tab_slider .slick-prev,
+.product_tab_slider .slick-next {
+  top: 40%;
+  z-index: 9;
+}
+.product_tab_slider .tab_btn {
+  flex-direction: column;
+  gap: 10px;
+}
+.product_tab_slider h2 {
+  font-size: 35px;
+  line-height: 40px;
+  padding-bottom: 10px;
+}
+.product_tab_slider .slider_inner {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.product_tab_slider .image {
+  max-width: 110px;
+}
+}
+</style>
+{% style %}
+#product_tab_slider-{{ section.id }} h2,
+  #product_tab_slider-{{ section.id }} h3 {
+ color: {{ section.settings.font1_color }};
+}
+#product_tab_slider-{{ section.id }} span p  {
+  color: {{ section.settings.font2_color }};
+}
+#product_tab_slider-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }}; 
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #product_tab_slider-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{%  for block in section.blocks %} 
+#slider_col-{{ block.id }} { 
+  background-image: url('{{ block.settings.bg_image | img_url: 'master' }}');
+}
+{% endfor %}
+{% endstyle %}
+<section class="product_tab_slider" id="product_tab_slider-{{ section.id }}">
+  <div class="contianer">
+    <div class="tabs_inner">
+      <div class="tab-menu">
+        <ul class="tab_btn">
+          {% if section.settings.tab1_heading  != blank %}
+            <li><span class="tab_link_btn active_span" data-id="tab1">{{ section.settings.tab1_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab2_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab2">{{ section.settings.tab2_heading }}</span></li>
+          {% endif %} 
+          {% if section.settings.tab3_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab3">{{ section.settings.tab3_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab4_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab4">{{ section.settings.tab4_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab5_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab5">{{ section.settings.tab5_heading }}</span></li>
+          {% endif %}
+          {% if section.settings.tab6_heading  != blank %}
+            <li><span class="tab_link_btn" data-id="tab6">{{ section.settings.tab6_heading }}</span></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>  
+    <div  class="tab active_tab" data-id="tab1"> 
+     {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'first_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner"> 
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p1.url }}" class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col"> 
+                  <a href="{{ block.settings.testimonial_p2.url }}" class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p3.url }}" class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p4.url }}" class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p5.url }}" class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p6.url }}" class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p7.url }}" class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+          </div>
+       {% endcase %}
+     {% endfor %}
+    </div>
+    <div class="tab" data-id="tab2">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'second_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p12.url }}" class="image"> 
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p22.url }}" class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p32.url }}" class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p42.url }}" class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p52.url }}" class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p62.url }}" class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p72.url }}" class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+    <div  class="tab" data-id="tab3">
+      {%  for block in section.blocks %}
+       {% case block.type %}
+         {% when 'third_tab' %}
+            <div class="tab_content_col">
+              {% if block.settings.headline != blank %}
+                <h2>{{ block.settings.headline }}</h2>
+              {% endif %}
+              <div class="slider_inner">
+                {% if block.settings.testimonial_img1 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p13.url }}" class="image">
+                    {{ block.settings.testimonial_img1| image_url: width:
+                    block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img2 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p23.url }}" class="image">
+                    {{ block.settings.testimonial_img2| image_url: width:
+                    block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img3 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p33.url }}" class="image">
+                    {{ block.settings.testimonial_img3| image_url: width:
+                    block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img4 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p43.url }}" class="image">
+                    {{ block.settings.testimonial_img4| image_url: width:
+                    block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img5 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p53.url }}" class="image">
+                    {{ block.settings.testimonial_img5| image_url: width:
+                    block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img6 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p63.url }}" class="image">
+                    {{ block.settings.testimonial_img6| image_url: width:
+                    block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+                {% if block.settings.testimonial_img7 != blank %}
+                <div class="slide_col">
+                  <a href="{{ block.settings.testimonial_p73.url }}" class="image">
+                    {{ block.settings.testimonial_img7| image_url: width:
+                    block.settings.testimonial_img7.width | image_tag: loading: 'lazy'}}
+                  </a>
+                </div>
+                {% endif %}
+              </div>
+          </div>
+       {% endcase %}
+      {% endfor %}
+    </div>
+   
+  </div> 
+</section>  
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    $('.tab_link_btn').click(function () {
+        $(".tab").removeClass('active_tab');
+        $(".tab[data-id='" + $(this).attr('data-id') + "']").addClass("active_tab");
+        $(".tab_link_btn").removeClass('active_span');
+        $(this).addClass('active_span');
+        var tabIndex = $(".tab_link_btn").index(this);
+    });  
+    
+    $(".slider_inner").slick({ 
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplaySpeed: 0,
+      autoplay: false, 
+      variableWidth: false, 
+      arrows: true,
+      responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 5
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 4
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: {
+              slidesToShow: 3
+            }
+          }
+        ]
+    }); 
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var images = document.querySelectorAll(".product_tab_slider .image");
+    images.forEach(function(image) {
+      image.addEventListener("click", function(event) {
+        event.preventDefault();
+        let url = image.getAttribute('href');
+        console.log(url);
+        fetch(url)
+        .then(res => res.text())
+        .then(data => {
+           let div = document.createElement('div');
+            div.innerHTML = data;
+            //console.log(div.querySelector('.main-pdp').innerHTML);
+            let new_data = div.querySelector('.main-pdp').innerHTML;
+            document.querySelector('.main-pdp').innerHTML = new_data
+            
+          })
+      });
+    });
+
+  });
+</script>
+
+
+
+
+{% schema %} 
+  { 
+    "name": "Product Tab Slider",
+    "settings": [ 
+       {
+          "type": "text",
+          "id": "tab1_heading",
+          "label": "Tab Heading",
+          "default": "Tea"
+        },
+        {
+          "type": "text",
+          "id": "tab2_heading",
+          "label": "Tab Heading",
+          "default": "sparkling water"
+        },
+        {
+          "type": "text",
+          "id": "tab3_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab4_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab5_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type": "text",
+          "id": "tab6_heading",
+          "label": "Tab Heading"
+        },
+        {
+          "type":"header",
+          "content":"Section Color Setting"
+        }, 
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "font1_color",
+          "label": "Font 1 Color",
+          "default": "#FFAD14"
+        },
+        {
+          "type": "color",
+          "id": "font2_color",
+          "label": "Font 2 Color",
+          "default": "#ADAFB2"
+        },
+        {
+          "type":"header",
+          "content":"Section Desktop Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "desktop_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        },
+        {
+          "type":"header",
+          "content":"Section Mobile Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "mbl_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        }
+    ],
+    "blocks":[
+      {
+        "type":"first_tab",
+        "name":"First Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p1",
+          "label": "Product 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p2",
+          "label": "Product 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p3",
+          "label": "Product 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p4",
+          "label": "Product 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p5",
+          "label": "Product 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p6",
+          "label": "Product 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p7",
+          "label": "Product 7"
+        }
+     ]
+    },
+      {
+        "type":"second_tab",
+        "name":"Second Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p12",
+          "label": "Product 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p22",
+          "label": "Product 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p32",
+          "label": "Product 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p42",
+          "label": "Product 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p52",
+          "label": "Product 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p62",
+          "label": "Product 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p72",
+          "label": "Product 7"
+        }
+        ]
+      },
+      {
+        "type":"third_tab", 
+        "name":"Third Tab",
+        "limit": 1,
+        "settings":[
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+              {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p13",
+          "label": "Product 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p23",
+          "label": "Product 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p33",
+          "label": "Product 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p43",
+          "label": "Product 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p53",
+          "label": "Product 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+          {
+          "type": "product",
+          "id": "testimonial_p63",
+          "label": "Product 6"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img7",
+           "label": "Image 7"
+        },
+          {
+          "type": "product", 
+          "id": "testimonial_p73",
+          "label": "Product 7"
+        }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Product Tab Slider"
+    }
+  ]
+  }
+{% endschema %}

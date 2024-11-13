@@ -1,0 +1,426 @@
+<style>
+.ps-case-study-block{
+  width: 100%;
+  height: auto;
+}
+.ps-case-study-block .page-width {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+} 
+.ps-case-study-block .study-block--inner {
+  display: flex;
+  flex-direction: column;
+  gap: 230px;
+}
+.ps-case-study-block .block_col {
+  display: grid;
+  grid-template-columns: 30% auto;
+  align-items: flex-end;
+}
+.ps-case-study-block .block_content {
+  max-width: 1150px;
+  display: flex;
+  justify-content: center;
+  row-gap: 30px;
+  flex-direction: column;
+  border-left: 2px solid #F93;
+}
+.ps-case-study-block .content_inner {
+  display: flex;
+}
+.ps-case-study-block .content_image {
+  padding: 0 40px;
+  height: auto;
+  max-width: 530px;
+}
+.ps-case-study-block .content_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ps-case-study-block .content_text {
+  padding: 30px 40px 0;
+  border-left: 2px solid #F93;
+}
+.ps-case-study-block h5 {
+  margin: 0;
+  color: #053527;
+  font-family: Righteous;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 57.6px;
+  text-transform: uppercase;
+  padding: 0 0 20px 70px;
+}
+.ps-case-study-block h2 {
+  color: #FFAD14;
+  font-family: Righteous;
+  font-size: 430px;
+  font-weight: 400; 
+  line-height: 330.44px;
+  letter-spacing: 4.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.ps-case-study-block h3 {
+  color: #053527;
+  font-family: DIN;
+  font-size: 79.4px;
+  font-weight: 700;
+  line-height: 93.44px;
+  letter-spacing: 0.768px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 40px;
+}
+.ps-case-study-block span.desc h4 {
+  color: #F93;
+  font-family: DIN;
+  font-size: 17.9px;
+  font-weight: 700;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px 0;
+}
+.ps-case-study-block span.desc,
+.ps-case-study-block span.desc p {
+  color: #053527;
+  font-family: DIN;
+  font-size: 19.8px;
+  font-weight: 700;
+  line-height: 37.12px; 
+  letter-spacing: 0.64px;
+  margin: 0;
+}
+@media screen and (max-width: 1600px) {
+.ps-case-study-block .study-block--inner {
+  gap: 150px;
+}
+.ps-case-study-block h5 {
+  font-size: 50px;
+  line-height: 57.6px;
+  padding: 0 0 10px 60px;
+}
+.ps-case-study-block h2 {
+  font-size: 330px;
+  line-height: 240.44px;
+}
+.ps-case-study-block h3 {
+  font-size: 70.4px;
+  line-height: 83.44px;
+  padding: 0px 20px;
+}
+.ps-case-study-block .content_image {
+  padding: 0 20px;
+}
+.ps-case-study-block .content_text {
+  padding: 20px 20px 0;
+}
+}
+@media screen and (max-width: 1400px) {
+.ps-case-study-block .study-block--inner {
+  gap: 100px;
+}
+.ps-case-study-block h5 {
+  font-size: 40px;
+  line-height: 47.6px;
+  max-width: 450px;
+}
+.ps-case-study-block h2 {
+  font-size: 270px;
+  line-height: 200.44px;
+}
+.ps-case-study-block h3 {
+  font-size: 50.4px;
+  line-height: 57.44px;
+  padding: 0px 20px;
+}
+.ps-case-study-block span.desc h4 {
+  font-size: 16.9px;
+  line-height: 20.6px;
+  letter-spacing: 2.584px;
+  padding: 5px 0;
+}
+.ps-case-study-block span.desc, .ps-case-study-block span.desc p {
+  font-size: 16.8px;
+  line-height: 28.12px;
+}
+}
+@media screen and (max-width: 1199px) {
+.ps-case-study-block .study-block--inner {
+  gap: 80px;
+}
+.ps-case-study-block h5 {
+  font-size: 30px;
+  line-height: 37.6px;
+  padding: 0 0 10px 50px;
+}
+.ps-case-study-block h2 {
+  font-size: 210px;
+  line-height: 150.44px;
+}
+.ps-case-study-block h3 {
+  font-size: 40.4px;
+  line-height: 47.44px;
+}
+.ps-case-study-block .content_image {
+  min-width: 320px;
+}
+}
+@media screen and (max-width: 991px) {
+.ps-case-study-block .study-block--inner {
+  gap: 50px;
+}
+.ps-case-study-block .block_col {
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+.ps-case-study-block h5 {
+  font-size: 25px;
+  line-height: 32.6px;
+  padding: 0 0 10px 30px;
+}
+.ps-case-study-block h2 {
+  font-size: 200px;
+  line-height: 130.44px;
+}
+.ps-case-study-block h3 {
+  font-size: 30px;
+  line-height: 36px;
+}
+.ps-case-study-block .block_content {
+  border-left: none;
+}
+}
+@media screen and (max-width: 767px) {
+.ps-case-study-block .content_inner {
+  flex-direction: column;
+}
+.ps-case-study-block .content_text {
+  border-left: none;
+}
+}
+</style>
+{%- style -%}
+#ps-case-study-block-{{ section.id }} h2 {
+  color:{{ section.settings.font1_color }};
+}
+#ps-case-study-block-{{ section.id }} h3,
+#ps-case-study-block-{{ section.id }} span p {
+  color:{{ section.settings.font2_color }};
+}
+#ps-case-study-block-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }};  
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #ps-case-study-block-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{%- endstyle -%}
+<section class="ps-case-study-block" id="ps-case-study-block-{{ section.id }}"> 
+    <div class="page-width">
+        <div class="study-block--inner">
+          {% for block in section.blocks %} 
+            <div class="block_col"> 
+              <div class="block_heading">
+                {% if block.settings.subhead != blank %}
+                  <h5>{{ block.settings.subhead }}</h5>
+                {% endif %} 
+                {% if block.settings.heading != blank %}
+                  <h2>{{ block.settings.heading }}</h2> 
+                {% endif %}
+              </div>
+              <div class="block_content">
+                {% if block.settings.headline != blank %}
+                  <h3>{{ block.settings.headline }}</h3> 
+                {% endif %}
+                <div class="content_inner">
+                  {% if block.settings.image != blank %} 
+                    <div class="content_image">
+                      {% if block.settings.image != blank %}
+                        {{ block.settings.image| image_url: width: block.settings.image.width | image_tag: loading: 'lazy' }}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <div class="content_text">
+                    {% if block.settings.desc != blank %}
+                      <span class="desc">{{ block.settings.desc }}</span>
+                    {% endif %} 
+                    {% if block.settings.btn_text != blank %}
+                      <div class="primary_btn">
+                        <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                            <g clip-path="url(#clip0_4_66)"><path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                             <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/></g>
+                            <defs><clipPath id="clip0_4_66"><rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/></clipPath></defs>
+                          </svg>
+                        </a>
+                      </div>
+                   {% endif %} 
+                  </div> 
+                </div>
+              </div>
+             </div>
+          {% endfor %}
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "PS Case Study Block",
+    "settings": [
+      {
+        "type":"header",
+        "content":"Section Desktop Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "desktop_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      },
+      {
+        "type":"header",
+        "content":"Section Mobile Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "mbl_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      }
+    ],
+    "blocks":[
+    {
+      "type":"add_block", 
+      "name":"Add Block",
+      "settings":[    
+        {
+          "type": "text",
+          "id": "subhead",
+          "label": "Subhead",
+          "default": "Study No. 01"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "TEA & Health benefits"
+        },
+        {
+          "type": "image_picker",
+          "id": "image", 
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription", 
+          "default": "<p>Discription</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "view study"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+      ]
+    }
+   ],
+    "presets": [
+    {
+      "name": "PS Case Study Block"
+    }
+  ]
+  }
+{% endschema %}

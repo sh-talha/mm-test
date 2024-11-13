@@ -1,0 +1,417 @@
+<style>
+.ps-image--text {
+  width: 100%;
+  height: auto;
+}
+.ps-image--text .page-width {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.ps-image--text .image-text-inner {
+  display: flex; 
+  justify-content: center;
+  align-items: stretch;
+}
+.ps-image--text .text-col {
+  width: 50%;
+  padding: 40px 65px 40px 192px;
+}
+.ps-image--text .image {
+  width: 50%;
+}
+.ps-image--text .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+}
+.ps-image--text h4 {
+  font-family: "Town 50 Chic";
+  font-size: 17.9px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 15px;
+}
+.ps-image--text h2 {
+  font-family: Righteous;
+  font-size: 79.4px;
+  font-weight: 400;
+  line-height: 93.44px;
+  letter-spacing: 0.768px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 55px;
+  max-width: 600px;
+}
+.ps-image--text-v2 h2 {
+  font-size: 80px !important;
+  line-height: 88px !important;
+  letter-spacing: -4px !important;
+  max-width: 850px !important;
+  padding-bottom: 10px !important;
+}
+.ps-image--text-v2 .text-col {
+  padding: 20px 60px !important;
+}
+.ps-image--text-v2 span.desc {
+  padding-bottom: 30px !important;
+}
+.ps-image--text span.desc {
+  display: block;
+  padding-bottom: 60px;
+}
+.ps-image--text span.desc,
+.ps-image--text span.desc p {
+  font-family: "Martel Sans";
+  font-size: 23.7px;
+  font-weight: 700;
+  line-height: 37.12px;
+  letter-spacing: 0.64px;
+  margin: 0;
+}
+.ps-image--text h3 {
+  font-family: "Town 50 Chic";
+  font-size: 17.9px;
+  font-weight: 400;
+  line-height: 25.6px;
+  letter-spacing: 3.584px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: 15px;
+} 
+@media screen and (max-width: 1600px) {
+.ps-image--text .text-col {
+  padding: 40px 60px;
+}
+.ps-image--text h4 {
+  padding-bottom: 10px;
+}
+.ps-image--text-v2 h2 {
+  font-size: 50px !important;
+  line-height: 58px !important;
+  letter-spacing: -3px !important;
+  max-width: 520px !important;
+  word-break: break-all !important;
+}
+.ps-image--text-v2 .text-col {
+  padding: 20px 30px !important;
+}
+.ps-image--text h2 {
+  font-size: 50.4px;
+  line-height: 58.44px;
+  padding-bottom: 30px;
+  max-width: 390px;
+}
+.ps-image--text span.desc {
+  padding-bottom: 20px;
+}
+.ps-image--text span.desc, .ps-image--text span.desc p {
+  font-size: 18.7px;
+  line-height: 28.12px;
+}
+}
+@media screen and (max-width: 1199px) {
+.ps-image--text .text-col {
+  padding: 20px 30px;
+}
+.ps-image--text h2 {
+  font-size: 40.4px !important;
+  line-height: 48.44px !important;
+  max-width: 300px !important;
+  padding-bottom: 20px;
+}
+.ps-image--text-v2 h2 {
+  font-size: 40px !important;
+  line-height: 47px !important;
+  letter-spacing: -2px !important;
+  max-width: 348px !important;
+}
+.ps-image--text span.desc, 
+.ps-image--text span.desc p {
+  font-size: 16.7px;
+  line-height: 24.12px;
+}
+.ps-image--text span.desc {
+  padding-bottom: 10px !important;
+}
+}
+@media screen and (max-width: 991px) {
+.ps-image--text .image-text-inner {
+  flex-direction: column !important;
+}
+.ps-image--text .text-col {
+  width: 100%;
+}
+.ps-image--text .image {
+  width: 100%;
+}
+}
+
+</style>
+{% style %}
+#ps-image--text-{{ section.id }} .image-text-inner {
+  flex-direction:{{ section.settings.row_reverse }};
+}
+#ps-image--text-{{ section.id }} h4 {
+  color:{{ section.settings.font1_color }};
+}
+#ps-image--text-{{ section.id }} h2,
+#ps-image--text-{{ section.id }} h3 { 
+  color:{{ section.settings.font2_color }}; 
+}
+#ps-image--text-{{ section.id }} span p {
+  color:{{ section.settings.font3_color }};
+}
+#ps-image--text-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }}; 
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #ps-image--text-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{% if section.settings.img_position == 'top'%}
+@media (max-width: 991px){
+  .ps-image--text .image-text-inner .image{
+    order:-1 !important;
+  }
+}
+{% endif %} 
+{% endstyle %}
+<section class="ps-image--text {{ section.settings.custom_class }}" id="ps-image--text-{{ section.id }}">
+  <div class="page-width">
+  <div class="image-text-inner {{ section.settings.row_reverse }}">
+      <div class="text-col"> 
+          {% if section.settings.caption != blank %}
+            <h4>{{ section.settings.caption }}</h4>
+          {% endif %} 
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2> 
+          {% endif %}
+          {% if section.settings.desc_1 != blank %}
+            <span class="desc">{{ section.settings.desc_1 }}</span>
+          {% endif %} 
+          {% if section.settings.subhead != blank %}
+            <h3>{{ section.settings.subhead }}</h3>
+          {% endif %} 
+          {% if section.settings.desc_2 != blank %}
+            <span class="desc">{{ section.settings.desc_2 }}</span>
+          {% endif %}
+      </div>
+      {% if section.settings.image != blank %}
+        <div class="image">
+          {% if section.settings.image != blank %}
+            {{ section.settings.image| image_url: width: section.settings.image.width | image_tag: loading: 'lazy' }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "PS Image With Text",
+    "settings": [ 
+      {
+        "type": "text",
+        "id": "custom_class",
+        "label": "Custom class"
+      },
+      {
+        "type": "select",
+        "id": "row_reverse",
+        "label": "Image Direction",
+        "options": [
+          {
+            "value": "row",
+            "label": "Left"
+          },
+          {
+            "value": "row-reverse",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "img_position",
+        "label": "Image Mobile Direction",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "caption",
+        "label": "Caption"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Puresource is your ultimate fitness partner"
+      },
+      {
+        "type": "richtext",
+        "id": "desc_1",
+        "label": "Description 1",
+         "default": "<p>We didn't just slap that title on PureSource because it sounded cool - no way! We actually did our homework with a bunch of research and clinical studies. See, PureSource does its thing by mixing up a proven formula of good-for-you, energy-pumping stuff with what your body does naturally when you get moving. It's like a tag team between us and your body, working together to bring you all kinds of benefits that we could talk about forever (well, almost forever).</p>"
+      },
+      {
+        "type": "text",
+        "id": "subhead",
+        "label": "Subhead" 
+      },
+      {
+        "type": "richtext",
+        "id": "desc_2",
+        "label": "Description 2",
+         "default": "<p>There have been dozens of studies done on the benefits of CBDa. We’ve pulled 6 of them. To make sure everyone's on the same page, they presented all these studies at science conferences and got them published in fancy peer-reviewed journals.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type":"header",
+        "content":"Section Color Setting"
+      }, 
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "font1_color",
+        "label": "Font 1 Color",
+        "default": "#053527"
+      },
+      {
+        "type": "color",
+        "id": "font2_color",
+        "label": "Font 2 Color",
+        "default": "#FFAD14"
+      },
+      {
+        "type": "color",
+        "id": "font3_color",
+        "label": "Font 3 Color",
+        "default": "#000"
+      },
+      {
+        "type":"header",
+        "content":"Section Desktop Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "desktop_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0 
+      },
+      {
+        "type": "range",
+        "id": "desktop_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      },
+      {
+        "type":"header",
+        "content":"Section Mobile Spacing"
+      }, 
+      {
+        "type": "range",
+        "id": "mbl_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "mbl_margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      }
+    ],
+    "presets":[
+      {
+        "name":"PS Image With Text"
+      }
+    ]
+  }
+{% endschema %}

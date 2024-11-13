@@ -1,0 +1,432 @@
+{% comment %} <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css"/> {% endcomment %}
+<style>
+.psc_feature_testimonial { 
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.psc_feature_testimonial .container {
+  max-width: 100%;
+}
+.feature_testimonial_inner .slick-prev, .feature_testimonial_inner .slick-next{
+  top: 35%;
+}
+.psc_feature_testimonial  img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.psc_feature_testimonial h2 {
+  text-align: center;
+  font-family: Righteous;
+  font-size: 149.219px;
+  font-weight: 800;
+  line-height: 113.92px;
+  letter-spacing: -1.536px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+      margin: 0;
+}
+.psc_feature_testimonial .testimonial_col {
+  padding: 0 20px;
+}
+.psc_feature_testimonial .col_images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+.psc_feature_testimonial .image {
+  max-width: 230px;
+}
+.psc_feature_testimonial .testimonial_content {
+  display: flex;
+  max-width: 884px;
+  padding: 0px 44px 0px 44px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12.33px;
+  margin: 0 auto;
+}
+.psc_feature_testimonial .slick-next:before, .psc_feature_testimonial .slick-prev:before{
+  filter: invert(1);
+}
+.psc_feature_testimonial h3 {
+  text-align: center;
+  font-family: "Town 50 Chic";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding-top: 40px;
+  margin: 0 ;
+}
+.psc_feature_testimonial .desc,
+.psc_feature_testimonial .desc p {
+  text-align: center;
+  font-family: "Martel Sans";
+  font-size: 23.145px;
+  font-weight: 400;
+  line-height: 37.12px;
+  letter-spacing: 0.64px;
+}
+ @media screen and (max-width: 1520px){
+.psc_feature_testimonial h2 {
+  font-size: 110px;
+  line-height: 100px;
+}
+.psc_feature_testimonial .image {
+  max-width: 200px;
+}
+}
+@media screen and (max-width: 1199px){
+.psc_feature_testimonial h2 {
+  font-size: 90px;
+}
+.psc_feature_testimonial .col_images {
+  gap: 35px;
+}
+.psc_feature_testimonial .image { 
+  max-width: 180px;
+}
+}
+@media screen and (max-width: 991px){
+  .psc_feature_testimonial h2 {
+    font-size: 70px;
+    line-height: 78px;
+  }
+  .psc_feature_testimonial .image {
+    max-width: 160px;
+  }
+  .psc_feature_testimonial .testimonial_content {
+    max-width: 100%;
+    padding: 0;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 767px){
+.psc_feature_testimonial h2 {
+  font-size: 35px;
+  line-height: 40px;
+  padding-bottom: 10px;
+}
+.psc_feature_testimonial .col_images {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.psc_feature_testimonial .image {
+  max-width: 110px;
+}
+.psc_feature_testimonial h3 {
+  font-size: 22px;
+  line-height: 32px;
+  padding-top: 20px;
+}
+.psc_feature_testimonial .desc p {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+}
+} 
+</style>
+{% style %}
+#psc_feature_testimonial-{{ section.id }} h2,
+#psc_feature_testimonial-{{ section.id }} h3 {
+  color:{{ section.settings.font1_color }};
+}
+#psc_feature_testimonial-{{ section.id }} span p {
+  color:{{ section.settings.font2_color }};
+}
+#psc_feature_testimonial-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }}; 
+  padding-top:{{ section.settings.desktop_padding_top }}px;
+  padding-bottom:{{ section.settings.desktop_padding_bottom }}px;
+  margin-top:{{ section.settings.desktop_margin_top }}px;
+  margin-bottom:{{ section.settings.desktop_margin_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  #psc_feature_testimonial-{{ section.id }} {
+    padding-top:{{ section.settings.mbl_padding_top }}px;
+    padding-bottom:{{ section.settings.mbl_padding_bottom }}px;
+    margin-top:{{ section.settings.mbl_margin_top }}px;
+    margin-bottom:{{ section.settings.mbl_margin_bottom }}px; 
+  }
+}
+{% endstyle %}
+<section class="psc_feature_testimonial" id="psc_feature_testimonial-{{ section.id }}">
+  <div class="container">
+    <div class="feature_testimonial_inner">
+      {% for block in section.blocks %} 
+      <div class="testimonial_col"> 
+          {% if block.settings.headline != blank %}
+            <h2>{{ block.settings.headline }}</h2>
+          {% endif %}
+          <div class="col_images">
+            {% if block.settings.testimonial_img1 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img1| image_url: width: block.settings.testimonial_img1.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+            {% if block.settings.testimonial_img2 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img2| image_url: width: block.settings.testimonial_img2.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+            {% if block.settings.testimonial_img3 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img3| image_url: width: block.settings.testimonial_img3.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+            {% if block.settings.testimonial_img4 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img4| image_url: width: block.settings.testimonial_img4.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+            {% if block.settings.testimonial_img5 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img5| image_url: width: block.settings.testimonial_img5.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+            {% if block.settings.testimonial_img6 != blank %}
+            <div class="image">
+              {{ block.settings.testimonial_img6| image_url: width: block.settings.testimonial_img6.width | image_tag: loading: 'lazy'}}
+            </div>
+            {% endif %}
+          </div>
+        <div class="testimonial_content">
+          {% if block.settings.heading != blank %}
+            <h3>{{ block.settings.heading }}</h3>
+          {% endif %} 
+          {% if block.settings.desc != blank %}
+            <span class="desc">{{ block.settings.desc }}</span>
+          {% endif %}
+          {% if block.settings.btn_text != blank %}
+          <div class="primary_btn">
+                <a href="{{ block.settings.btn_url }}" class="site_primary-btn"><span>{{ block.settings.btn_text }}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                    <g clip-path="url(#clip0_4_66)"> 
+                      <path d="M16.8098 1.65973V31.1202" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                      <path d="M31.5401 16.39H2.07959" stroke="white" stroke-width="2.20953" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4_66">
+                        <rect width="31.67" height="31.67" fill="white" transform="translate(0.974854 0.554993)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+          </div>
+         {% endif %} 
+        </div>
+      </div>
+      {% endfor %}
+    </div> 
+  </div>
+</section>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script> -->
+<script>
+  $(document).ready(function() {
+    $(".feature_testimonial_inner").slick({ 
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrow: true,
+        variablewidth: true, 
+        dots: false
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "PS feature slider ",
+    "settings": [
+      {
+          "type":"header",
+          "content":"Section Color Setting"
+        }, 
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "font1_color",
+          "label": "Font 1 Color",
+          "default": "#A9D0C7"
+        },
+        {
+          "type": "color",
+          "id": "font2_color",
+          "label": "Font 2 Color",
+          "default": "#ADAFB2"
+        },
+        {
+          "type":"header",
+          "content":"Section Desktop Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "desktop_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "desktop_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        },
+        {
+          "type":"header",
+          "content":"Section Mobile Spacing"
+        }, 
+        {
+          "type": "range",
+          "id": "mbl_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "mbl_margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        }
+    ],
+   "blocks": [
+   {
+     "name": "Slide",
+     "type": "slide",
+     "settings": [
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headine",
+          "default": "puresource water"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img1",
+          "label": "Image 1"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img2",
+           "label": "Image 2"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img3",
+           "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "testimonial_img4",
+          "label": "Image 4"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img5",
+           "label": "Image 5"
+        },
+        {
+           "type": "image_picker",
+           "id": "testimonial_img6",
+           "label": "Image 6"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CBDª sparkling water"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Discription",
+          "default": "<p>Formulated for wellness enthusiasts looking to elevate their performance. With our proprietary CBDa formula and essential minerals, we are providing you with an unbeatable combination of enhanced physical performance and cognitive benefits.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+     ]
+   }
+],
+"presets":[
+    {
+      "name":"PS feature slider"
+    }
+  ]
+}
+{% endschema %}
