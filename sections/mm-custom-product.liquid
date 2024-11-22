@@ -1,0 +1,101 @@
+<style>
+    .mm-product-main{
+        .mm-product-image{
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+</style>
+<div class="mm-product-main">
+    <div class="page-width">
+        {% assign mm_product = section.settings.mm-product %}
+        <div class="mm-product-inner">
+            <span class="mm-product-image">
+            {%- if mm_product != blank -%}
+                    {{ mm_product.featured_image | image_url:width: mm_product.featured_image.width | image_tag:loading:'lazy' }}
+              {%- else -%}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+              </span>
+              <span class="mm-product-details">
+                <h2>{{ mm_product.title }}</h2>
+                <p>{{ mm_product.price | money_with_currency }}</p>
+                {% comment %} <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ mm_product.variants.first.id }}">
+                <button type="submit" class="product-form__submit button button--full-width button--secondary">Add to cart</button>
+                </form> {% endcomment %}
+                {%- assign product_form_id = 'product-form-' | append: section.id -%}
+                <product-form data-section-id="{{ section.id }}">
+                    {%- form 'product',
+                        mm_product,
+                      id: product_form_id,
+                      class: 'form',
+                      novalidate: 'novalidate',
+                      data-type: 'add-to-cart-form'
+                    -%}
+                      <input
+                        type="hidden"
+                        name="id"
+                        value="{{ mm_product.selected_or_first_available_variant.id }}"
+                        class="product-variant-id"
+                        {% if mm_product.selected_or_first_available_variant.available == false %}
+                          disabled
+                        {% endif %}
+                      >
+                      <button
+                        id="{{ product_form_id }}-submit"
+                        type="submit"
+                        name="add"
+                        class="quick-add__submit button button--full-width button--secondary"
+                        aria-haspopup="dialog"
+                        aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ mm_product.id }}"
+                        aria-live="polite"
+                        data-sold-out-message="true"
+                        {% if mm_product.selected_or_first_available_variant.available == false %}
+                          disabled
+                        {% endif %}
+                      >
+                        <span>
+                          {%- if mm_product.selected_or_first_available_variant.available -%}
+                            {{ 'products.product.add_to_cart' | t }}
+                          {%- else -%}
+                            {{ 'products.product.sold_out' | t }}
+                          {%- endif -%}
+                        </span>
+                        <span class="sold-out-message hidden">
+                          {{ 'products.product.sold_out' | t }}
+                        </span>
+                        {%- render 'loading-spinner' -%}
+                      </button>
+                    {%- endform -%}
+                  </product-form>
+                </span>
+        </div>
+    </div>
+</div>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+
+{% schema %}
+{
+  "name": "MM Custom Product",
+  "tag": "section",
+
+  "settings": [
+    {
+      "type": "product",
+      "id": "mm-product",
+      "label": "Select Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MM Custom Product"
+    }
+  ]
+}
+{% endschema %}
