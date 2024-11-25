@@ -7,77 +7,173 @@
                 object-fit: cover;
             }
         }
+        .variant-button.selected{
+          background: indianred;
+        }
     }
 </style>
 <div class="mm-product-main">
-    <div class="page-width">
-        {% assign mm_product = section.settings.mm-product %}
-        <div class="mm-product-inner">
-            <span class="mm-product-image">
-            {%- if mm_product != blank -%}
-                    {{ mm_product.featured_image | image_url:width: mm_product.featured_image.width | image_tag:loading:'lazy' }}
+  <div class="page-width">
+      {% assign mm_product = all_products[section.settings.mm-product] %}
+
+      <div class="mm-product-inner">
+          <span class="mm-product-image">
+              {%- if mm_product != blank -%}
+                  {{ mm_product.featured_image | image_url:width: mm_product.featured_image.width | image_tag:loading:'lazy' }}
               {%- else -%}
-                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
+          </span>
+          <span class="mm-product-details">
+              <h2>{{ mm_product.title }}</h2>
+              <p class="mm-product-price">{{ mm_product.price | money_with_currency }}</p>
+              <span class="mm-product-variants">
+                  <p class="mm-var-title">
+                      {{ mm_product.variants.first.title }} <!-- Default to the first variant title -->
+                  </p>
+                  {% for variant in mm_product.variants %}
+                      <button 
+                          class="variant-button" 
+                          data-variant-id="{{ variant.id }}" 
+                          data-image="{{ variant.featured_image | image_url }}" 
+                          data-price="{{ variant.price | money_with_currency }}" 
+                          data-available="{{ variant.available }}"
+                          data-title="{{ variant.title }}">
+                          <img 
+                              src="{{ variant.featured_image | image_url }}" 
+                              alt="{{ variant.title }}" 
+                              class="variant-image"
+                              width="50" height="50">
+                      </button>
+                  {% endfor %}
               </span>
-              <span class="mm-product-details">
-                <h2>{{ mm_product.title }}</h2>
-                <p>{{ mm_product.price | money_with_currency }}</p>
-                {% comment %} <form method="post" action="/cart/add">
-                    <input type="hidden" name="id" value="{{ mm_product.variants.first.id }}">
-                <button type="submit" class="product-form__submit button button--full-width button--secondary">Add to cart</button>
-                </form> {% endcomment %}
-                {%- assign product_form_id = 'product-form-' | append: section.id -%}
-                <product-form data-section-id="{{ section.id }}">
-                    {%- form 'product',
-                        mm_product,
-                      id: product_form_id,
-                      class: 'form',
-                      novalidate: 'novalidate',
-                      data-type: 'add-to-cart-form'
-                    -%}
+
+              <!-- Hidden input for the variant ID -->
+              <input
+                  type="hidden"
+                  name="id"
+                  id="selected-variant-id"
+                  value="{{ mm_product.selected_or_first_available_variant.id }}"
+              >
+
+              <product-form data-section-id="{{ section.id }}">
+                  {%- form 'product', mm_product, id: 'product-form-{{ section.id }}', class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                       <input
-                        type="hidden"
-                        name="id"
-                        value="{{ mm_product.selected_or_first_available_variant.id }}"
-                        class="product-variant-id"
-                        {% if mm_product.selected_or_first_available_variant.available == false %}
-                          disabled
-                        {% endif %}
+                          type="hidden"
+                          name="id"
+                          id="selected-variant-id-form"
+                          value="{{ mm_product.selected_or_first_available_variant.id }}"
+                          class="product-variant-id"
+                          {% if mm_product.selected_or_first_available_variant.available == false %}
+                              disabled
+                          {% endif %}
                       >
                       <button
-                        id="{{ product_form_id }}-submit"
-                        type="submit"
-                        name="add"
-                        class="quick-add__submit button button--full-width button--secondary"
-                        aria-haspopup="dialog"
-                        aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ mm_product.id }}"
-                        aria-live="polite"
-                        data-sold-out-message="true"
-                        {% if mm_product.selected_or_first_available_variant.available == false %}
-                          disabled
-                        {% endif %}
+                          id="product-form-{{ section.id }}-submit"
+                          type="submit"
+                          name="add"
+                          class="quick-add__submit button button--full-width button--secondary"
+                          aria-haspopup="dialog"
+                          aria-labelledby="product-form-{{ section.id }}-submit title-{{ section_id }}-{{ mm_product.id }}"
+                          aria-live="polite"
+                          data-sold-out-message="true"
+                          {% if mm_product.selected_or_first_available_variant.available == false %}
+                              disabled
+                          {% endif %}
                       >
-                        <span>
-                          {%- if mm_product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                        </span>
-                        <span class="sold-out-message hidden">
-                          {{ 'products.product.sold_out' | t }}
-                        </span>
-                        {%- render 'loading-spinner' -%}
+                          <span>
+                              {%- if mm_product.selected_or_first_available_variant.available -%}
+                                  {{ 'products.product.add_to_cart' | t }}
+                              {%- else -%}
+                                  {{ 'products.product.sold_out' | t }}
+                              {%- endif -%}
+                          </span>
+                          <span class="sold-out-message hidden">
+                              {{ 'products.product.sold_out' | t }}
+                          </span>
+                          {%- render 'loading-spinner' -%}
                       </button>
-                    {%- endform -%}
-                  </product-form>
-                </span>
-        </div>
-    </div>
+                  {%- endform -%}
+              </product-form>
+          </span>
+      </div>
+  </div>
 </div>
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const variantButtons = document.querySelectorAll('.variant-button');
+  const imageElement = document.querySelector('.mm-product-image img');
+  const priceElement = document.querySelector('.mm-product-price');
+  const titleElement = document.querySelector('.mm-var-title');
+  const variantIdInput = document.getElementById('selected-variant-id');
+  const variantIdInputForm = document.getElementById('selected-variant-id-form');  // For the form
+  const addToCartButton = document.querySelector('.quick-add__submit');
+
+  // Function to update the UI and inputs based on selected variant
+  function selectVariant(button) {
+    const variantId = button.getAttribute('data-variant-id');
+    const variantImage = button.getAttribute('data-image');
+    const variantImageSrcset = button.getAttribute('data-image-srcset');
+    const variantPrice = button.getAttribute('data-price');
+    const variantTitle = button.getAttribute('data-title');
+    const isAvailable = button.getAttribute('data-available') === 'true';
+
+    // Update main product image (src and srcset)
+    if (variantImage) {
+      imageElement.src = variantImage;
+      if (variantImageSrcset) {
+        imageElement.srcset = variantImageSrcset;
+      } else {
+        imageElement.removeAttribute('srcset'); // Clear srcset if none provided
+      }
+    }
+
+    // Update price
+    if (variantPrice) {
+      priceElement.textContent = variantPrice;
+    }
+
+    // Update variant title
+    if (variantTitle) {
+      titleElement.textContent = variantTitle;
+    }
+
+    // Update the hidden input for the form
+    if (variantIdInput) {
+      variantIdInput.value = variantId;
+    }
+
+    if (variantIdInputForm) {
+      variantIdInputForm.value = variantId;  // Ensure the form input reflects the selected variant
+    }
+
+    // Update the Add to Cart button state
+    addToCartButton.disabled = !isAvailable;
+
+    // Highlight the selected variant button
+    variantButtons.forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+  }
+
+  // Add click event listeners to each variant button
+  variantButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      selectVariant(button);
+    });
+  });
+
+  // Automatically select the first variant by default
+  if (variantButtons.length > 0) {
+    selectVariant(variantButtons[0]); // Select the first button
+  }
+});
+</script>
+
+
+
 
 
 {% schema %}
